@@ -9,6 +9,7 @@ import net.dcatcher.modjam.utils.DCConfig;
 import net.dcatcher.modjam.utils.DCCreativeTab;
 import net.dcatcher.modjam.utils.LanguageHandler;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -47,6 +48,9 @@ public class ModJam {
 		DCRecipes.registerRecipes();
 		
 		GameRegistry.registerTileEntity(TileEntityInfernalBurner.class, "tileEntityInfernalBurner");
+	
+		MinecraftForge.EVENT_BUS.register(net.dcatcher.modjam.utils.EventHandler.class);
+	
 	}
 	
 	@EventHandler
