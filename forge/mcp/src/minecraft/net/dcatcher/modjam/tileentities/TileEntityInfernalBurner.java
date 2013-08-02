@@ -2,6 +2,7 @@ package net.dcatcher.modjam.tileentities;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 
@@ -13,6 +14,11 @@ public class TileEntityInfernalBurner extends TileEntity implements ISidedInvent
     
     public int furnaceCookTime;
 	
+    
+    private static final int[] slots_top = new int[] {0};
+    private static final int[] slots_bottom = new int[] {2, 1};
+    private static final int[] slots_sides = new int[] {1};
+
     
     private ItemStack[] burnerItemStacks = new ItemStack[3];
 	@Override
@@ -72,67 +78,56 @@ public class TileEntityInfernalBurner extends TileEntity implements ISidedInvent
 	public void setInventorySlotContents(int i, ItemStack itemstack) {
 		this.burnerItemStacks[i] = itemstack;
 		
-		if()
+		if(itemstack != null && itemstack.stackSize > this.getInventoryStackLimit()){
+			itemstack.stackSize = this.getInventoryStackLimit();
+		}
 	}
 
 	@Override
 	public String getInvName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "container.burner";
 	}
 
 	@Override
 	public boolean isInvNameLocalized() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public int getInventoryStackLimit() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 64;
 	}
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
-	public void openChest() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void openChest() {}
 
 	@Override
-	public void closeChest() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void closeChest() {}
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		// TODO Auto-generated method stub
+		//TODO -> THIS PART
 		return false;
 	}
 
 	@Override
 	public int[] getAccessibleSlotsFromSide(int var1) {
-		// TODO Auto-generated method stub
-		return null;
+        return var1 == 0 ? slots_bottom : (var1 == 1 ? slots_top : slots_sides);
 	}
 
 	@Override
 	public boolean canInsertItem(int i, ItemStack itemstack, int j) {
-		// TODO Auto-generated method stub
-		return false;
+        return this.isItemValidForSlot(i, itemstack);
 	}
 
 	@Override
 	public boolean canExtractItem(int i, ItemStack itemstack, int j) {
-		// TODO Auto-generated method stub
-		return false;
+        return j != 0 || i != 1 || itemstack.itemID == Item.bucketEmpty.itemID;
 	}
 
 

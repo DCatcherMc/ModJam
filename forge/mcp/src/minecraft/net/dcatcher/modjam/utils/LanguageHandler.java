@@ -13,6 +13,9 @@ public class LanguageHandler {
 															"Infused Bricks");
 		LanguageRegistry.instance().addStringLocalization("tile.blockInfernalFurnace.name",
 															"Infernal Furnace Core");
+		
+		//TileEntities:
+		LanguageRegistry.instance().addStringLocalization("container.burner", "Infernal Burner");
 
 	}
 	

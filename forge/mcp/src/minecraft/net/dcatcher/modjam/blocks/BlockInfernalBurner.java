@@ -3,6 +3,7 @@ package net.dcatcher.modjam.blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.dcatcher.modjam.ModJam;
+import net.dcatcher.modjam.tileentities.TileEntityInfernalBurner;
 import net.dcatcher.modjam.utils.DCModInfo;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -24,7 +25,7 @@ public class BlockInfernalBurner extends BlockContainer {
 	@Override
 	public TileEntity createNewTileEntity(World world) {
 		// TODO Auto-generated method stub
-		return null;
+		return new TileEntityInfernalBurner();
 	}
 	
 	@Override

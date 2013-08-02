@@ -3,6 +3,7 @@ package net.dcatcher.modjam;
 import net.dcatcher.modjam.blocks.BlockHandler;
 import net.dcatcher.modjam.proxy.ClientProxy;
 import net.dcatcher.modjam.proxy.CommonProxy;
+import net.dcatcher.modjam.tileentities.TileEntityInfernalBurner;
 import net.dcatcher.modjam.utils.DCConfig;
 import net.dcatcher.modjam.utils.DCCreativeTab;
 import net.dcatcher.modjam.utils.LanguageHandler;
@@ -15,6 +16,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 
 @Mod(modid="DCatcherModJam", name="DCatcherModJam", version="p1")
@@ -39,6 +41,8 @@ public class ModJam {
 		BlockHandler.register(); 			//Registers ALL the blocks!
 		ClientProxy.registerRendering();
 		LanguageHandler.registerLangs();	//Registers my language stuffs
+		
+		GameRegistry.registerTileEntity(TileEntityInfernalBurner.class, "tileEntityInfernalBurner");
 	}
 	
 	@EventHandler
