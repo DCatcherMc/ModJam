@@ -36,4 +36,9 @@ It should then compile the jar file, provided you have added java to your path v
 Test Commit pre-modjam :D
 
 
-
+How To actually play it.. for now :)
+=======================================
+1) Go into creative, and spawn some Replaced Cows/Sheep
+2) Spawn in a MobRider(TM)
+3) Click on the Replaced Cow/Sheep, and you can RIDE THEM!
+(Slightly temperamental -> much like the vanilla piggies :))
