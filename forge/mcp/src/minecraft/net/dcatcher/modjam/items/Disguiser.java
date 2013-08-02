@@ -1,16 +1,14 @@
 package net.dcatcher.modjam.items;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
-import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.dcatcher.modjam.ModJam;
+import net.dcatcher.modjam.entity.EntityReplacedSheep;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIControlledByPlayer;
+import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -34,8 +32,15 @@ public class Disguiser extends Item {
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player,
 			Entity entity) {
 		EntityLiving eLiving = (EntityLiving)entity;
-		EntityAIControlledByPlayer entityai = new EntityAIControlledByPlayer(eLiving, 1);
-		eLiving.tasks.addTask(1, entityai);
+		if(eLiving instanceof EntitySheep){
+			int xCoord = eLiving.serverPosX;
+			int yCoord = eLiving.serverPosY;
+			int zCoord = eLiving.serverPosZ;
+			
+			World world = eLiving.worldObj;
+			
+			
+		}
 		player.mountEntity(eLiving);
 	return true;
 	}
