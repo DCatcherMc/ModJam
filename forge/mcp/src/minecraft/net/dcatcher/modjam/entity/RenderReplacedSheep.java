@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 @SideOnly(Side.CLIENT)
 public class RenderReplacedSheep extends RenderLiving
 {
-    private static final ResourceLocation field_110885_a = new ResourceLocation("textures/entity/sheep/sheep_fur.png");
+    private static final ResourceLocation field_110885_a = new ResourceLocation("dcmodjam:textures/entity/sheep/sheep_fur.png");
     private static final ResourceLocation field_110884_f = new ResourceLocation("dcmodjam:textures/entity/sheep/sheep.png");
 
     public RenderReplacedSheep(ModelBase par1ModelBase, ModelBase par2ModelBase, float par3)

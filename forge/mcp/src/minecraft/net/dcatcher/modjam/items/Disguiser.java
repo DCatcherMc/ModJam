@@ -8,6 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIControlledByPlayer;
+import net.minecraft.entity.item.EntityFallingSand;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -31,9 +32,13 @@ public class Disguiser extends Item {
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player,
 			Entity entity) {
+		if(entity instanceof EntityFallingSand){
+			return false;
+		}
 		EntityLiving eLiving = (EntityLiving)entity;
 		eLiving.tasks.addTask(1, new EntityAIControlledByPlayer(eLiving, 1F));
 		player.mountEntity(eLiving);
+		
 	return true;
 	}
 
