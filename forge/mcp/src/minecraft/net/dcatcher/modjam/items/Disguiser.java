@@ -1,7 +1,7 @@
 package net.dcatcher.modjam.items;
 
 import net.dcatcher.modjam.ModJam;
-import net.dcatcher.modjam.entity.EntityReplacedSheep;
+import net.dcatcher.modjam.entity.sheep.EntityReplacedSheep;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;

@@ -1,10 +1,10 @@
 package net.dcatcher.modjam;
 
 import net.dcatcher.modjam.blocks.BlockHandler;
-import net.dcatcher.modjam.entity.EntityReplacedSheep;
-import net.dcatcher.modjam.entity.ModelSheep1;
-import net.dcatcher.modjam.entity.ModelSheep2;
-import net.dcatcher.modjam.entity.RenderReplacedSheep;
+import net.dcatcher.modjam.entity.sheep.EntityReplacedSheep;
+import net.dcatcher.modjam.entity.sheep.ModelSheep1;
+import net.dcatcher.modjam.entity.sheep.ModelSheep2;
+import net.dcatcher.modjam.entity.sheep.RenderReplacedSheep;
 import net.dcatcher.modjam.items.ItemHandler;
 import net.dcatcher.modjam.proxy.ClientProxy;
 import net.dcatcher.modjam.proxy.CommonProxy;

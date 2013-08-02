@@ -1,10 +1,11 @@
-package net.dcatcher.modjam.entity;
+package net.dcatcher.modjam.entity.sheep;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingData;

@@ -1,4 +1,4 @@
-package net.dcatcher.modjam.entity;
+package net.dcatcher.modjam.entity.sheep;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

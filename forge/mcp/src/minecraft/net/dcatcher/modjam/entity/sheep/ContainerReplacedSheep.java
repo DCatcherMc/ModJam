@@ -1,4 +1,4 @@
-package net.dcatcher.modjam.entity;
+package net.dcatcher.modjam.entity.sheep;
 
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
