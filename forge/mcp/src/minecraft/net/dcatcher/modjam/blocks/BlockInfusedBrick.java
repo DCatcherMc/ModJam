@@ -15,7 +15,7 @@ public class BlockInfusedBrick extends BlockDC {
 	
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister ir) {
-		ir.registerIcon("dcmodjam:infused_bricks");
+		blockIcon = ir.registerIcon("dcmodjam:infused_bricks");
 	}
 
 }

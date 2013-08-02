@@ -13,6 +13,4 @@ public class BlockHandler {
 		blockInfusedBrick = new BlockInfusedBrick(DCConfig.idInfusedBrick);
 		GameRegistry.registerBlock(blockInfusedBrick, DCModInfo.BLOCK_INFUSED_BRICK_UNLOCALIZED);
 	}
-	
-	
 }
