@@ -1,8 +1,6 @@
 package net.dcatcher.modjam.proxy;
 
 import net.dcatcher.modjam.ModJam;
-import net.dcatcher.modjam.entity.bat.EntityReplacedBat;
-import net.dcatcher.modjam.entity.bat.RenderReplacedBat;
 import net.dcatcher.modjam.entity.cow.EntityReplacedCow;
 import net.dcatcher.modjam.entity.cow.RenderReplacedCow;
 import net.dcatcher.modjam.entity.sheep.EntityReplacedSheep;
