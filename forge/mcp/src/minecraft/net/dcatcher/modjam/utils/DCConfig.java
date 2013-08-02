@@ -13,6 +13,8 @@ public class DCConfig {
 	public static int idCrushedDiamond;
 	public static int idTeleporterShard;
 	
+	public static int idDisguiser, idDisguiserTag;
+	
 	public static void registerConfig(File directory){
 		File configFile = new File(directory + "/DCatcher.cfg");
 		try{
@@ -33,6 +35,9 @@ public class DCConfig {
 		idDiamondShard = c.getItem("DiamondShard", 5000).getInt();
 		idCrushedDiamond = c.getItem("BallOfCrushedDiamond", 5001).getInt();
 		idTeleporterShard = c.getItem("TeleporterShard", 5002).getInt();
+		
+		idDisguiser = c.getItem("Disguiser", 5005).getInt();
+		idDisguiserTag = c.getItem("DisguiserTag", 5006).getInt();
 		
 		//Save config:
 		c.save();
