@@ -3,10 +3,14 @@ package net.dcatcher.modjam.entity.hostile.enderman;
 import java.util.UUID;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIControlledByPlayer;
 import net.minecraft.entity.ai.attributes.AttributeInstance;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -39,6 +43,8 @@ public class EntityReplacedEnderman extends EntityMob
         super(par1World);
         this.setSize(0.6F, 2.9F);
         this.stepHeight = 1.0F;
+        EntityLiving rider = (EntityLiving) this.riddenByEntity;
+        this.tasks.addTask(1, new EntityAIControlledByPlayer(rider, 0.8F));
     }
 
     protected void func_110147_ax()
@@ -524,4 +530,5 @@ public class EntityReplacedEnderman extends EntityMob
     public boolean canBeSteered() {
     	return true;
     }
+
 }
