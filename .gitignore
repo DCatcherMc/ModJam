@@ -43,5 +43,7 @@ forge/mcp/src/minecraft/*lzma
 !forge/mcp/src/minecraft/assets/*
 !forge/mcp/src/minecraft/net/dcatcher/*
 
+
 *.bat
+!compile.bat
 *.sh
