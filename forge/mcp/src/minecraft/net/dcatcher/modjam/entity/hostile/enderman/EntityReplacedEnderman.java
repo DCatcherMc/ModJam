@@ -7,6 +7,8 @@ import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIControlledByPlayer;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.attributes.AttributeInstance;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityMob;
@@ -26,8 +28,6 @@ import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 
 public class EntityReplacedEnderman extends EntityMob
 {
-    private static final UUID field_110192_bp = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291A0");
-    private static final AttributeModifier field_110193_bq = (new AttributeModifier(field_110192_bp, "Attacking speed boost", 6.199999809265137D, 0)).func_111168_a(false);
     public static boolean[] carriableBlocks = new boolean[256];
 
     /**
@@ -44,15 +44,10 @@ public class EntityReplacedEnderman extends EntityMob
         this.setSize(0.6F, 2.9F);
         this.stepHeight = 1.0F;
         EntityLiving rider = (EntityLiving) this.riddenByEntity;
-        this.tasks.addTask(1, new EntityAIControlledByPlayer(rider, 0.8F));
-    }
+        this.tasks.addTask(0, new EntityAIControlledByPlayer(rider, 0.8F));
+        this.tasks.addTask(5, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(7, new EntityAILookIdle(this));
 
-    protected void func_110147_ax()
-    {
-        super.func_110147_ax();
-        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(40.0D);
-        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.30000001192092896D);
-        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(7.0D);
     }
 
     protected void entityInit()
@@ -87,7 +82,7 @@ public class EntityReplacedEnderman extends EntityMob
      * Finds the closest player within 16 blocks to attack, or null if this Entity isn't interested in attacking
      * (Animals, Spiders at day, peaceful PigZombies).
      */
-    protected Entity findPlayerToAttack()
+/*    protected Entity findPlayerToAttack()
     {
         EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 64.0D);
 
@@ -120,7 +115,7 @@ public class EntityReplacedEnderman extends EntityMob
 
     /**
      * Checks to see if this enderman should be attacking this player
-     */
+     
     private boolean shouldAttackPlayer(EntityPlayer par1EntityPlayer)
     {
         ItemStack itemstack = par1EntityPlayer.inventory.armorInventory[3];
@@ -146,7 +141,7 @@ public class EntityReplacedEnderman extends EntityMob
      * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
      * use this to react to sunlight and start to burn.
      */
-    public void onLivingUpdate()
+   /* public void onLivingUpdate()
     {
         if (this.isWet())
         {
@@ -156,12 +151,7 @@ public class EntityReplacedEnderman extends EntityMob
         if (this.field_110194_bu != this.entityToAttack)
         {
             AttributeInstance attributeinstance = this.func_110148_a(SharedMonsterAttributes.field_111263_d);
-            attributeinstance.func_111124_b(field_110193_bq);
 
-            if (this.entityToAttack != null)
-            {
-                attributeinstance.func_111121_a(field_110193_bq);
-            }
         }
 
         this.field_110194_bu = this.entityToAttack;
@@ -220,7 +210,6 @@ public class EntityReplacedEnderman extends EntityMob
                 this.entityToAttack = null;
                 this.setScreaming(false);
                 this.field_104003_g = false;
-                this.teleportRandomly();
             }
         }
 
@@ -229,7 +218,6 @@ public class EntityReplacedEnderman extends EntityMob
             this.entityToAttack = null;
             this.setScreaming(false);
             this.field_104003_g = false;
-            this.teleportRandomly();
         }
 
         if (this.isScreaming() && !this.field_104003_g && this.rand.nextInt(100) == 0)
@@ -250,15 +238,6 @@ public class EntityReplacedEnderman extends EntityMob
             {
                 if (this.entityToAttack instanceof EntityPlayer && this.shouldAttackPlayer((EntityPlayer)this.entityToAttack))
                 {
-                    if (this.entityToAttack.getDistanceSqToEntity(this) < 16.0D)
-                    {
-                        this.teleportRandomly();
-                    }
-
-                    this.teleportDelay = 0;
-                }
-                else if (this.entityToAttack.getDistanceSqToEntity(this) > 256.0D && this.teleportDelay++ >= 30 && this.teleportToEntity(this.entityToAttack))
-                {
                     this.teleportDelay = 0;
                 }
             }
@@ -271,10 +250,14 @@ public class EntityReplacedEnderman extends EntityMob
 
         super.onLivingUpdate();
     }
-
+    
+    */
+    
+    
+/*
     /**
      * Teleport the enderman to a random nearby position
-     */
+     
     protected boolean teleportRandomly()
     {
         double d0 = this.posX + (this.rand.nextDouble() - 0.5D) * 64.0D;
@@ -285,7 +268,7 @@ public class EntityReplacedEnderman extends EntityMob
 
     /**
      * Teleport the enderman to another entity
-     */
+     
     protected boolean teleportToEntity(Entity par1Entity)
     {
         Vec3 vec3 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX - par1Entity.posX, this.boundingBox.minY + (double)(this.height / 2.0F) - par1Entity.posY + (double)par1Entity.getEyeHeight(), this.posZ - par1Entity.posZ);
@@ -299,7 +282,7 @@ public class EntityReplacedEnderman extends EntityMob
 
     /**
      * Teleport the enderman
-     */
+     
     protected boolean teleportTo(double par1, double par3, double par5)
     {
         EnderTeleportEvent event = new EnderTeleportEvent(this, par1, par3, par5, 0);
@@ -375,7 +358,7 @@ public class EntityReplacedEnderman extends EntityMob
             return true;
         }
     }
-
+*/
     /**
      * Returns the sound this mob makes while it's alive.
      */
@@ -481,13 +464,7 @@ public class EntityReplacedEnderman extends EntityMob
             {
                 this.field_104003_g = false;
 
-                for (int i = 0; i < 64; ++i)
-                {
-                    if (this.teleportRandomly())
-                    {
-                        return true;
-                    }
-                }
+                
 
                 return super.attackEntityFrom(par1DamageSource, par2);
             }
@@ -526,9 +503,9 @@ public class EntityReplacedEnderman extends EntityMob
         carriableBlocks[Block.mycelium.blockID] = true;
     }
     
-    @Override
     public boolean canBeSteered() {
     	return true;
     }
+
 
 }

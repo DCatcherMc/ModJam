@@ -38,7 +38,7 @@ public class EntityReplacedCow extends EntityAnimal
      */
     public boolean isAIEnabled()
     {
-        return true;
+        return false;
     }
 
     protected void func_110147_ax()
