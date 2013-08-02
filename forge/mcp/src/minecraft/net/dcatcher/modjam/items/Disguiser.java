@@ -35,7 +35,7 @@ public class Disguiser extends Item {
 			Entity entity) {
 		EntityLiving eLiving = (EntityLiving)entity;
 		EntityAIControlledByPlayer entityai = new EntityAIControlledByPlayer(eLiving, 1);
-		eLiving.tasks.addTask(1, new EntityAIControlledByPlayer(eLiving, 0.34F));
+		eLiving.tasks.addTask(1, entityai);
 		player.mountEntity(eLiving);
 	return true;
 	}
