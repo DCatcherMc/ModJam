@@ -20,6 +20,7 @@ echo:
 cd reobf/minecraft
 jar cf DCatcherMODJAM.jar net assets mcmod.info
 
+
 echo "Build Complete. The file can be found in: reobf/minecraft/DCatcherMODJAM.jar :D"
 
 pause
