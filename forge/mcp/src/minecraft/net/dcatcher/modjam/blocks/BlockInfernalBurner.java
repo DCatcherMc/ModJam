@@ -57,9 +57,7 @@ public class BlockInfernalBurner extends BlockContainer {
 			float par8, float par9) {
 		if(te != null && te.checkValidity(world, x, y, z)){
 			System.out.println("VALID");
-			
 		}
-		
 		return true;
 	}
 		

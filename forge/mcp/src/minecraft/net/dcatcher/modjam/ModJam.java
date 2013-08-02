@@ -42,6 +42,8 @@ public class ModJam {
 		ClientProxy.registerRendering();
 		LanguageHandler.registerLangs();	//Registers my language stuffs
 		
+		DCRecipes.registerRecipes();
+		
 		GameRegistry.registerTileEntity(TileEntityInfernalBurner.class, "tileEntityInfernalBurner");
 	}
 	
