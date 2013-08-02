@@ -36,20 +36,7 @@ public class Disguiser extends Item {
 		EntityLiving eLiving = (EntityLiving)entity;
 		EntityAIControlledByPlayer entityai = new EntityAIControlledByPlayer(eLiving, 1);
 		eLiving.tasks.addTask(1, new EntityAIControlledByPlayer(eLiving, 0.34F));
-
-		Method m = ReflectionHelper.findMethod(EntityLiving.class, null, new String[] {"func_82171_bF"}, null);
-		try {
-			m.invoke(Material.wood);
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		boolean steerable = eLiving.canBeSteered();
 		player.mountEntity(eLiving);
 	return true;
 	}
