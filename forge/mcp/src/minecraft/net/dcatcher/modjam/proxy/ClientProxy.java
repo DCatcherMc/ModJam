@@ -3,6 +3,8 @@ package net.dcatcher.modjam.proxy;
 import net.dcatcher.modjam.ModJam;
 import net.dcatcher.modjam.entity.cow.EntityReplacedCow;
 import net.dcatcher.modjam.entity.cow.RenderReplacedCow;
+import net.dcatcher.modjam.entity.hostile.enderman.EntityReplacedEnderman;
+import net.dcatcher.modjam.entity.hostile.enderman.RenderReplacedEnderman;
 import net.dcatcher.modjam.entity.sheep.EntityReplacedSheep;
 import net.dcatcher.modjam.entity.sheep.ModelSheep1;
 import net.dcatcher.modjam.entity.sheep.ModelSheep2;
@@ -29,6 +31,10 @@ public class ClientProxy extends CommonProxy{
 		EntityRegistry.registerModEntity(EntityReplacedCow.class, "ReplacedCow", 2, ModJam.instance, 80, 3, true);
 		registerEntityEgg(EntityReplacedCow.class, 0x545454, 0x111111);
 		
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedEnderman.class, new RenderReplacedEnderman());
+		EntityRegistry.registerModEntity(EntityReplacedEnderman.class, "ReplacedEnderman", 3, ModJam.instance, 80, 3, true);
+		registerEntityEgg(EntityReplacedEnderman.class, 0x000000, 0x999999);
 	}
 	
 	public static int getUniqueEntityId() 
