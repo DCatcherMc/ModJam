@@ -1,7 +1,11 @@
 package net.dcatcher.modjam.items;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.dcatcher.modjam.ModJam;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -33,8 +37,19 @@ public class Disguiser extends Item {
 		EntityAIControlledByPlayer entityai = new EntityAIControlledByPlayer(eLiving, 1);
 		eLiving.tasks.addTask(1, new EntityAIControlledByPlayer(eLiving, 0.34F));
 
-		ReflectionHelper.findMethod(EntityLiving.class, EntityLivingBase.class, new String[] {"func_82171_bF", "");
-		
+		Method m = ReflectionHelper.findMethod(EntityLiving.class, null, new String[] {"func_82171_bF"}, null);
+		try {
+			m.invoke(Material.wood);
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		player.mountEntity(eLiving);
 	return true;
 	}
