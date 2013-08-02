@@ -1,5 +1,6 @@
 package net.dcatcher.modjam.items;
 
+import net.dcatcher.modjam.ModJam;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,6 +12,8 @@ public class Disguiser extends Item {
 
 	public Disguiser(int par1) {
 		super(par1);
+		setUnlocalizedName("disguiser");
+		setCreativeTab(ModJam.tabJam);
 	}
 	
 	@Override
@@ -22,8 +25,7 @@ public class Disguiser extends Item {
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player,
 			Entity entity) {
-		player.ridingEntity = entity;
-	
+		player.mountEntity(entity);
 	return true;
 	}
 
