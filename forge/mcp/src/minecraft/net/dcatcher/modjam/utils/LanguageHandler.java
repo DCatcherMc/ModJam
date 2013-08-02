@@ -18,7 +18,7 @@ public class LanguageHandler {
 		//Items:
 		LanguageRegistry.instance().addStringLocalization("item.shardDiamond.name", "Diamond Shard");
 		LanguageRegistry.instance().addStringLocalization("item.ballOfCrushedDiamond.name", "Ball of Crushed Diamond");
-		
+		LanguageRegistry.instance().addStringLocalization("item.disguiser.name", "MobRider(TM)");
 		
 		
 		//TileEntities:

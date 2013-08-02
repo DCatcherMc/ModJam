@@ -35,7 +35,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class ModJam {
 	
-	 static int startEntityId = 300;
 
 	
 	@Instance
@@ -65,9 +64,7 @@ public class ModJam {
 		MinecraftForge.EVENT_BUS.register(net.dcatcher.modjam.utils.EventHandler.class);
 		
 		
-		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedSheep.class, new RenderReplacedSheep(new ModelSheep2(), new ModelSheep1(), 0.7F));
-		EntityRegistry.registerModEntity(EntityReplacedSheep.class, "ReplacedSheep", 1, this, 80, 3, true);
-		  registerEntityEgg(EntityReplacedSheep.class, 0xffffff, 0x000000);
+		
 
 	}
 	
@@ -76,22 +73,6 @@ public class ModJam {
 		
 	}
 	
-	public static int getUniqueEntityId() 
-	 {
-	  do 
-	  {
-	   startEntityId++;
-	  } 
-	  while (EntityList.getStringFromID(startEntityId) != null);
-
-	   return startEntityId;
-	 }
-	 
-	 public static void registerEntityEgg(Class<? extends Entity> entity, int primaryColor, int secondaryColor) 
-	 {
-	  int id = getUniqueEntityId();
-	  EntityList.IDtoClassMapping.put(id, entity);
-	  EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
-	 }
+	
 	
 }
