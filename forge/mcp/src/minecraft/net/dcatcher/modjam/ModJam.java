@@ -2,6 +2,9 @@ package net.dcatcher.modjam;
 
 import net.dcatcher.modjam.blocks.BlockHandler;
 import net.dcatcher.modjam.entity.EntityReplacedSheep;
+import net.dcatcher.modjam.entity.ModelSheep1;
+import net.dcatcher.modjam.entity.ModelSheep2;
+import net.dcatcher.modjam.entity.RenderReplacedSheep;
 import net.dcatcher.modjam.items.ItemHandler;
 import net.dcatcher.modjam.proxy.ClientProxy;
 import net.dcatcher.modjam.proxy.CommonProxy;
@@ -9,8 +12,6 @@ import net.dcatcher.modjam.tileentities.TileEntityInfernalBurner;
 import net.dcatcher.modjam.utils.DCConfig;
 import net.dcatcher.modjam.utils.DCCreativeTab;
 import net.dcatcher.modjam.utils.LanguageHandler;
-import net.minecraft.client.model.ModelSheep1;
-import net.minecraft.client.model.ModelSheep2;
 import net.minecraft.client.renderer.entity.RenderSheep;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -64,7 +65,7 @@ public class ModJam {
 		MinecraftForge.EVENT_BUS.register(net.dcatcher.modjam.utils.EventHandler.class);
 		
 		
-		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedSheep.class, new RenderSheep(new ModelSheep2(), new ModelSheep1(), 0.7F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedSheep.class, new RenderReplacedSheep(new ModelSheep2(), new ModelSheep1(), 0.7F));
 		EntityRegistry.registerModEntity(EntityReplacedSheep.class, "ReplacedSheep", 1, this, 80, 3, true);
 		  registerEntityEgg(EntityReplacedSheep.class, 0xffffff, 0x000000);
 
