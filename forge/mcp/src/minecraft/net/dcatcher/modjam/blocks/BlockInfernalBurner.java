@@ -38,7 +38,7 @@ public class BlockInfernalBurner extends BlockContainer {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int meta) {
-		if(side == 1 || side == 0){
+		if(side == 1 || side == 0)
 			return top;
 			
 		if(meta == 1)
@@ -48,5 +48,5 @@ public class BlockInfernalBurner extends BlockContainer {
 	}
 		
 		
-	}
+	
 }
