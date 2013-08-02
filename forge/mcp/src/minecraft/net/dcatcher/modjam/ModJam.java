@@ -1,5 +1,7 @@
 package net.dcatcher.modjam;
 
+import net.dcatcher.modjam.blocks.BlockHandler;
+import net.dcatcher.modjam.utils.DCConfig;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -14,12 +16,12 @@ public class ModJam {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e){
-		
+		DCConfig.registerConfig(e.getModConfigurationDirectory());
 	}
 	
 	@EventHandler
 	public void Init(FMLInitializationEvent e){
-		
+		BlockHandler.register();
 	}
 	
 	@EventHandler
