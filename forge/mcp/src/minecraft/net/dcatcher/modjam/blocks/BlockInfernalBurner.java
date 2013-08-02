@@ -15,10 +15,10 @@ public class BlockInfernalBurner extends BlockContainer {
 	
 	private Icon top, blockIconLit;
 	
-	public BlockInfernalBurner(int par1, Material par2Material) {
-		super(par1, par2Material);
+	public BlockInfernalBurner(int par1) {
+		super(par1, Material.rock);
 		setCreativeTab(ModJam.tabJam);
-		setUnlocalizedName(DCModInfo.BLOCK_INFERNAL_FURNACE_UNLOCALIZED);
+		setUnlocalizedName(DCModInfo.BLOCK_INFERNAL_BURNER_UNLOCALIZED);
 	}
 
 	@Override
