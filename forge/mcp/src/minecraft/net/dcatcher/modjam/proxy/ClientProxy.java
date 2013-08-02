@@ -1,6 +1,8 @@
 package net.dcatcher.modjam.proxy;
 
 import net.dcatcher.modjam.ModJam;
+import net.dcatcher.modjam.entity.bat.EntityReplacedBat;
+import net.dcatcher.modjam.entity.bat.RenderReplacedBat;
 import net.dcatcher.modjam.entity.cow.EntityReplacedCow;
 import net.dcatcher.modjam.entity.cow.RenderReplacedCow;
 import net.dcatcher.modjam.entity.sheep.EntityReplacedSheep;
@@ -28,6 +30,11 @@ public class ClientProxy extends CommonProxy{
 		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedCow.class, new RenderReplacedCow(new ModelCow(), 0.7F));
 		EntityRegistry.registerModEntity(EntityReplacedCow.class, "ReplacedCow", 2, ModJam.instance, 80, 3, true);
 		registerEntityEgg(EntityReplacedCow.class, 0x545454, 0x111111);
+		
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedBat.class, new RenderReplacedBat());
+		EntityRegistry.registerModEntity(EntityReplacedBat.class, "ReplacedBat", 3, ModJam.instance, 80, 3, true);
+		registerEntityEgg(EntityReplacedBat.class, 0x111111, 0x222222);
 	
 	}
 	
