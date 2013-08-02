@@ -32,15 +32,7 @@ public class Disguiser extends Item {
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player,
 			Entity entity) {
 		EntityLiving eLiving = (EntityLiving)entity;
-		if(eLiving instanceof EntitySheep){
-			int xCoord = eLiving.serverPosX;
-			int yCoord = eLiving.serverPosY;
-			int zCoord = eLiving.serverPosZ;
-			
-			World world = eLiving.worldObj;
-			
-			
-		}
+		eLiving.tasks.addTask(1, new EntityAIControlledByPlayer(eLiving, 1F));
 		player.mountEntity(eLiving);
 	return true;
 	}

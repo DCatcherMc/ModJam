@@ -13,6 +13,9 @@ import net.minecraft.client.model.ModelSheep1;
 import net.minecraft.client.model.ModelSheep2;
 import net.minecraft.client.renderer.entity.RenderSheep;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityEggInfo;
+import net.minecraft.entity.EntityList;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
@@ -30,6 +33,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid="DCatcherModJam", name="DCatcherModJam", version="p1")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class ModJam {
+	
+	 static int startEntityId = 300;
+
 	
 	@Instance
 	public static ModJam instance = new ModJam();
@@ -58,14 +64,33 @@ public class ModJam {
 		MinecraftForge.EVENT_BUS.register(net.dcatcher.modjam.utils.EventHandler.class);
 		
 		
-		EntityRegistry.registerModEntity(EntityReplacedSheep.class, "ReplacedSheep", 1, this, 80, 3, true);
 		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedSheep.class, new RenderSheep(new ModelSheep2(), new ModelSheep1(), 0.7F));
-	
+		EntityRegistry.registerModEntity(EntityReplacedSheep.class, "ReplacedSheep", 1, this, 80, 3, true);
+		  registerEntityEgg(EntityReplacedSheep.class, 0xffffff, 0x000000);
+
 	}
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e){
 		
 	}
+	
+	public static int getUniqueEntityId() 
+	 {
+	  do 
+	  {
+	   startEntityId++;
+	  } 
+	  while (EntityList.getStringFromID(startEntityId) != null);
+
+	   return startEntityId;
+	 }
+	 
+	 public static void registerEntityEgg(Class<? extends Entity> entity, int primaryColor, int secondaryColor) 
+	 {
+	  int id = getUniqueEntityId();
+	  EntityList.IDtoClassMapping.put(id, entity);
+	  EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
+	 }
 	
 }
