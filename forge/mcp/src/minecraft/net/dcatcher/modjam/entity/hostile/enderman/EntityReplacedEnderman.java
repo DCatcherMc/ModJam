@@ -4,6 +4,7 @@ import java.util.UUID;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIControlledByPlayer;
 import net.minecraft.entity.ai.attributes.AttributeInstance;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityMob;
@@ -33,20 +34,26 @@ public class EntityReplacedEnderman extends EntityMob
     private int field_70826_g;
     private Entity field_110194_bu;
     private boolean field_104003_g;
+    private final EntityAIControlledByPlayer aiControlledByPlayer;
 
     public EntityReplacedEnderman(World par1World)
     {
         super(par1World);
         this.setSize(0.6F, 2.9F);
         this.stepHeight = 1.0F;
+        this.tasks.addTask(2, this.aiControlledByPlayer = new EntityAIControlledByPlayer(this, 0.3F));
+
     }
     
     @Override
     public boolean canBeSteered() {
-    	// TODO Auto-generated method stub
     	return true;
     }
     
+    public EntityAIControlledByPlayer getAIControlledByPlayer()
+    {
+        return this.aiControlledByPlayer;
+    }
     
 
     protected void func_110147_ax()

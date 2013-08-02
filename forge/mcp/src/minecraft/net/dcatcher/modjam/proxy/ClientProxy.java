@@ -5,6 +5,8 @@ import net.dcatcher.modjam.entity.cow.EntityReplacedCow;
 import net.dcatcher.modjam.entity.cow.RenderReplacedCow;
 import net.dcatcher.modjam.entity.hostile.enderman.EntityReplacedEnderman;
 import net.dcatcher.modjam.entity.hostile.enderman.RenderReplacedEnderman;
+import net.dcatcher.modjam.entity.hostile.spider.EntityReplacedSpider;
+import net.dcatcher.modjam.entity.hostile.spider.RenderReplacedSpider;
 import net.dcatcher.modjam.entity.sheep.EntityReplacedSheep;
 import net.dcatcher.modjam.entity.sheep.ModelSheep1;
 import net.dcatcher.modjam.entity.sheep.ModelSheep2;
@@ -35,6 +37,11 @@ public class ClientProxy extends CommonProxy{
 		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedEnderman.class, new RenderReplacedEnderman());
 		EntityRegistry.registerModEntity(EntityReplacedEnderman.class, "ReplacedEnderman", 3, ModJam.instance, 80, 3, true);
 		registerEntityEgg(EntityReplacedEnderman.class, 0x000000, 0x999999);
+		
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedSpider.class, new RenderReplacedSpider());
+		EntityRegistry.registerModEntity(EntityReplacedSpider.class, "ReplacedSpider", 4, ModJam.instance, 80, 3, true);
+		registerEntityEgg(EntityReplacedSpider.class, 0x000000, 0x1111111);
 	}
 	
 	public static int getUniqueEntityId() 
