@@ -17,7 +17,8 @@ public class BlockTeleporter extends BlockContainer {
 	public boolean canConnectRedstone(IBlockAccess world, int x, int y, int z,
 			int side) {
 		return true;
-	}
+		
+	} 
 	
 	@Override
 	public TileEntity createNewTileEntity(World world) {
