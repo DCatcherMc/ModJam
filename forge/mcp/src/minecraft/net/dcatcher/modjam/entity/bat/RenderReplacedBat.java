@@ -2,7 +2,6 @@ package net.dcatcher.modjam.entity.bat;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.model.ModelBat;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -25,18 +24,18 @@ public class RenderReplacedBat extends RenderLiving
 
     public RenderReplacedBat()
     {
-        super(new ModelBat(), 0.25F);
-        this.renderedBatSize = ((ModelBat)this.mainModel).getBatSize();
+        super(new ModelReplacedBat(), 0.25F);
+        this.renderedBatSize = ((ModelReplacedBat)this.mainModel).getBatSize();
     }
 
     public void func_82443_a(EntityReplacedBat par1EntityBat, double par2, double par4, double par6, float par8, float par9)
     {
-        int i = ((ModelBat)this.mainModel).getBatSize();
+        int i = ((ModelReplacedBat)this.mainModel).getBatSize();
 
         if (i != this.renderedBatSize)
         {
             this.renderedBatSize = i;
-            this.mainModel = new ModelBat();
+            this.mainModel = new ModelReplacedBat();
         }
 
         super.doRenderLiving(par1EntityBat, par2, par4, par6, par8, par9);

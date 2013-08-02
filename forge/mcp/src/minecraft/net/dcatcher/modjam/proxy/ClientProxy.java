@@ -31,11 +31,6 @@ public class ClientProxy extends CommonProxy{
 		EntityRegistry.registerModEntity(EntityReplacedCow.class, "ReplacedCow", 2, ModJam.instance, 80, 3, true);
 		registerEntityEgg(EntityReplacedCow.class, 0x545454, 0x111111);
 		
-		
-		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedBat.class, new RenderReplacedBat());
-		EntityRegistry.registerModEntity(EntityReplacedBat.class, "ReplacedBat", 3, ModJam.instance, 80, 3, true);
-		registerEntityEgg(EntityReplacedBat.class, 0x111111, 0x222222);
-	
 	}
 	
 	public static int getUniqueEntityId() 
