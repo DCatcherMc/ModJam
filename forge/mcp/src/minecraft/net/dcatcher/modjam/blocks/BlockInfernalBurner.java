@@ -8,6 +8,7 @@ import net.dcatcher.modjam.utils.DCModInfo;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -15,6 +16,8 @@ import net.minecraft.world.World;
 public class BlockInfernalBurner extends BlockContainer {
 	
 	private Icon top, blockIconLit;
+	
+	TileEntityInfernalBurner te = new TileEntityInfernalBurner();
 	
 	public BlockInfernalBurner(int par1) {
 		super(par1, Material.rock);
@@ -25,7 +28,7 @@ public class BlockInfernalBurner extends BlockContainer {
 	@Override
 	public TileEntity createNewTileEntity(World world) {
 		// TODO Auto-generated method stub
-		return new TileEntityInfernalBurner();
+		return te;
 	}
 	
 	@Override
@@ -46,6 +49,17 @@ public class BlockInfernalBurner extends BlockContainer {
 			return blockIconLit;
 		
 		return blockIcon;
+	}
+	
+	@Override
+	public boolean onBlockActivated(World world, int x, int y,
+			int z, EntityPlayer player, int par6, float par7,
+			float par8, float par9) {
+		if(te != null && te.checkValidity(world, x, y, z)){
+			System.out.println("VALID");
+		}
+		
+		return true;
 	}
 		
 		

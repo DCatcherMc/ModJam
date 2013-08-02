@@ -1,10 +1,12 @@
 package net.dcatcher.modjam.tileentities;
 
+import net.dcatcher.modjam.blocks.BlockHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public class TileEntityInfernalBurner extends TileEntity implements ISidedInventory{
 
@@ -129,6 +131,38 @@ public class TileEntityInfernalBurner extends TileEntity implements ISidedInvent
 	public boolean canExtractItem(int i, ItemStack itemstack, int j) {
         return j != 0 || i != 1 || itemstack.itemID == Item.bucketEmpty.itemID;
 	}
+	
+    
+    public boolean checkValidity(World world, int x, int y, int z){
+    	if(checkSquare(world, x, y-1, z)){
+    		return true;
+    	}
+    	return false;
+    }
+    
+    public boolean checkSquare(World world, int x, int y, int z){
+    	int goodId = BlockHandler.blockInfusedBrick.blockID;
+    	
+    	//Worst coding - will improve.
+    	
+    	if(world.getBlockId(x-1, y, z-1) == goodId
+    			&& world.getBlockId(x, y, z-1) == goodId
+    			&& world.getBlockId(x+1, y, z-1) == goodId
+    			
+    			&& world.getBlockId(x-1, y, z) == goodId
+    			&& world.getBlockId(x, y, z) == goodId
+    			&& world.getBlockId(x+1, y, z) == goodId
+    			
+    			&& world.getBlockId(x-1, y, z+1) == goodId
+    			&& world.getBlockId(x, y, z+1) == goodId
+    			&& world.getBlockId(x+1, y, z+1) == goodId
+    			){
+    		return true;
+    	}
+    	
+    	
+    	return false;
+    }
 
 
 }
