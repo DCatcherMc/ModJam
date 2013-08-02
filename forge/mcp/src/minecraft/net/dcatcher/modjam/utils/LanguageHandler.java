@@ -14,6 +14,13 @@ public class LanguageHandler {
 		LanguageRegistry.instance().addStringLocalization("tile.blockInfernalFurnace.name",
 															"Infernal Furnace Core");
 		
+		
+		//Items:
+		LanguageRegistry.instance().addStringLocalization("item.shardDiamond.name", "Diamond Shard");
+		LanguageRegistry.instance().addStringLocalization("item.ballOfCrushedDiamond.name", "Ball of Crushed Diamond");
+		
+		
+		
 		//TileEntities:
 		LanguageRegistry.instance().addStringLocalization("container.burner", "Infernal Burner");
 

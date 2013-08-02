@@ -1,6 +1,7 @@
 package net.dcatcher.modjam;
 
 import net.dcatcher.modjam.blocks.BlockHandler;
+import net.dcatcher.modjam.items.ItemHandler;
 import net.dcatcher.modjam.proxy.ClientProxy;
 import net.dcatcher.modjam.proxy.CommonProxy;
 import net.dcatcher.modjam.tileentities.TileEntityInfernalBurner;
@@ -39,6 +40,7 @@ public class ModJam {
 	@EventHandler
 	public void Init(FMLInitializationEvent e){
 		BlockHandler.register(); 			//Registers ALL the blocks!
+		ItemHandler.registerItems();		//registers items
 		ClientProxy.registerRendering();
 		LanguageHandler.registerLangs();	//Registers my language stuffs
 		
