@@ -134,33 +134,40 @@ public class TileEntityInfernalBurner extends TileEntity implements ISidedInvent
 	
     
     public boolean checkValidity(World world, int x, int y, int z){
-    	if(checkSquare(world, x, y-1, z)){
+    	if(checkSquare(world, x, y-1, z) && checkSquare(world, x, y+1, z)
+    			&& checkBlockId(world, x-1, y, z-1)
+    			&& checkBlockId(world, x-1, y, z+1)
+    			&& checkBlockId(world, x+1, y, z-1)
+    			&& checkBlockId(world, x+1, y, z-1)
+    			){
     		return true;
     	}
     	return false;
     }
     
+    public static boolean checkBlockId(World world, int x, int y, int z){
+    	if(world.getBlockId(x, y, z)==BlockHandler.blockInfusedBrick.blockID)
+    		return true;
+    	return false;
+    }
+    
     public boolean checkSquare(World world, int x, int y, int z){
     	int goodId = BlockHandler.blockInfusedBrick.blockID;
-    	
     	//Worst coding - will improve.
-    	
-    	if(world.getBlockId(x-1, y, z-1) == goodId
-    			&& world.getBlockId(x, y, z-1) == goodId
-    			&& world.getBlockId(x+1, y, z-1) == goodId
+    	if(checkBlockId(world, x-1, y, z-1) 
+    			&& checkBlockId(world, x, y, z-1)
+    			&& checkBlockId(world, x+1, y, z-1) 
     			
-    			&& world.getBlockId(x-1, y, z) == goodId
-    			&& world.getBlockId(x, y, z) == goodId
-    			&& world.getBlockId(x+1, y, z) == goodId
+    			&& checkBlockId(world, x-1, y, z) 
+    			&& checkBlockId(world, x, y, z) 
+    			&& checkBlockId(world, x+1, y, z) 
     			
-    			&& world.getBlockId(x-1, y, z+1) == goodId
-    			&& world.getBlockId(x, y, z+1) == goodId
-    			&& world.getBlockId(x+1, y, z+1) == goodId
+    			&& checkBlockId(world, x-1, y, z+1) 
+    			&& checkBlockId(world, x, y, z+1) 
+    			&& checkBlockId(world, x+1, y, z+1) 
     			){
     		return true;
     	}
-    	
-    	
     	return false;
     }
 
