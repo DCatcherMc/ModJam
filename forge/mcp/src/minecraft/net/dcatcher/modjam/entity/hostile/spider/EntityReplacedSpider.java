@@ -28,7 +28,7 @@ public class EntityReplacedSpider extends EntityAnimal
         this.tasks.addTask(7, new EntityAILookIdle(this));
 
     }
-
+	
 	 public boolean isAIEnabled()
 	    {
 	        return false;
