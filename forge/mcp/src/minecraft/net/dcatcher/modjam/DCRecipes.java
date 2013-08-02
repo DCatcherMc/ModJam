@@ -17,7 +17,7 @@ public class DCRecipes {
 	public static ItemStack stackDiamondShard9 = new ItemStack(ItemHandler.diamondShard, 9);
 	
 	public static void registerRecipes(){
-		GameRegistry.addShapedRecipe(stackInfusedBrick4, " b ", "beb", " b ", 'b', stackStoneBricks1, 'e', stackEmerald1);
+		GameRegistry.addShapedRecipe(stackInfusedBrick4, " b ", "beb", " b ", 'b', stackStoneBricks1, 'e', stackDiamondShard9);
 	
 		GameRegistry.addShapelessRecipe(stackDiamondShard9, stackDiamond1);
 		GameRegistry.addShapedRecipe(stackDiamond1, "ddd","ddd", "ddd", 'd', stackDiamondShard9);
