@@ -7,5 +7,6 @@ public class DCModInfo {
 	
 	public static String ITEM_DIAMOND_SHARD_UNLOCALIZED = "shardDiamond";
 	public static String ITEM_BALL_OF_CRUSHED_DIAMOND_UNLOCALIZED = "ballOfCrushedDiamond";
+	public static String ITEM_TELEPORTER_SHARD = "teleporterShard";
 
 }

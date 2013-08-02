@@ -11,6 +11,7 @@ public class DCConfig {
 	public static int idInfernalBurner;
 	public static int idDiamondShard;
 	public static int idCrushedDiamond;
+	public static int idTeleporterShard;
 	
 	public static void registerConfig(File directory){
 		File configFile = new File(directory + "/DCatcher.cfg");
@@ -31,6 +32,7 @@ public class DCConfig {
 		
 		idDiamondShard = c.getItem("DiamondShard", 5000).getInt();
 		idCrushedDiamond = c.getItem("BallOfCrushedDiamond", 5001).getInt();
+		idTeleporterShard = c.getItem("TeleporterShard", 5002).getInt();
 		
 		//Save config:
 		c.save();
