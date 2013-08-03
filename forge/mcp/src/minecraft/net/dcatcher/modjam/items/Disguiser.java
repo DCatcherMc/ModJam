@@ -59,8 +59,8 @@ public class Disguiser extends Item {
 			
 
 			World world = entity.worldObj;
-			entity.setDead();
 			if(entity instanceof EntitySheep ){
+				entity.setDead();
 				Entity e = new EntityReplacedSheep(world);
 				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
 				if(!world.isRemote){
@@ -72,9 +72,10 @@ public class Disguiser extends Item {
 				
 				replacedMob.tasks.addTask(1, new EntityAIControlledByPlayer(replacedMob, 1F));
 				}
-
+			
 			
 			if(entity instanceof EntityCow ){
+				entity.setDead();
 				Entity e = new EntityReplacedCow(world);
 				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
 				if(!world.isRemote){
@@ -88,6 +89,7 @@ public class Disguiser extends Item {
 				}
 			
 			if(entity instanceof EntityEnderman ){
+				entity.setDead();
 				Entity e = new EntityReplacedEnderman(world);
 				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
 				if(!world.isRemote){
@@ -102,6 +104,7 @@ public class Disguiser extends Item {
 		
 			
 			if(entity instanceof EntitySpider ){
+				entity.setDead();
 				Entity e = new EntityReplacedSpider(world);
 				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
 				if(!world.isRemote){
@@ -113,9 +116,6 @@ public class Disguiser extends Item {
 				
 				replacedMob.tasks.addTask(1, new EntityAIControlledByPlayer(replacedMob, 1F));
 				}
-			else if(entity instanceof EntityAnimal){
-				return false;
-			}
 			
 			stack.splitStack(1);
 	return true;
