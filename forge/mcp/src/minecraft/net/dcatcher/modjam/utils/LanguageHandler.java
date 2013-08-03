@@ -18,7 +18,8 @@ public class LanguageHandler {
 		//Items:
 		LanguageRegistry.instance().addStringLocalization("item.shardDiamond.name", "Diamond Shard");
 		LanguageRegistry.instance().addStringLocalization("item.ballOfCrushedDiamond.name", "Ball of Crushed Diamond");
-		LanguageRegistry.instance().addStringLocalization("item.mobTamer.name", "MobRider(TM)");
+		LanguageRegistry.instance().addStringLocalization("item.mobTamer.name", "Wand of Ruling");
+		LanguageRegistry.instance().addStringLocalization("item.wandOfGrowth.name", "Wand Of Growth");
 		
 		//Foods:
 		LanguageRegistry.instance().addStringLocalization("item.foodBeefInfused.name", "Infused Beed");
