@@ -7,9 +7,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIControlledByPlayer;
 import net.minecraft.entity.ai.EntityAIEatGrass;
 import net.minecraft.entity.ai.EntityAIFollowParent;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -63,9 +66,10 @@ public class EntityReplacedSheep extends EntityAnimal implements IShearable
         this.tasks.addTask(3, new EntityAITempt(this, 1.1D, Item.wheat.itemID, false));
         this.tasks.addTask(4, new EntityAIFollowParent(this, 1.1D));
         this.tasks.addTask(5, this.aiEatGrass);
-        this.tasks.addTask(6, new EntityAIWander(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
+    	this.tasks.addTask(6, new EntityAIControlledByPlayer(this, 0.7F));
+        this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
+        this.tasks.addTask(9, new EntityAILookIdle(this));
         this.field_90016_e.setInventorySlotContents(0, new ItemStack(Item.dyePowder, 1, 0));
         this.field_90016_e.setInventorySlotContents(1, new ItemStack(Item.dyePowder, 1, 0));
     }

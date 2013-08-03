@@ -44,6 +44,7 @@ public class EntityReplacedEnderman extends EntityAnimal
         super(par1World);
         this.setSize(0.6F, 2.9F);
         this.stepHeight = 1.0F;
+        this.tasks.addTask(0, new EntityAIControlledByPlayer(this, 0.6F));
         this.tasks.addTask(1, new EntityAIWander(this, 1D));
         this.tasks.addTask(2, new EntityAILookIdle(this));
 
@@ -54,7 +55,11 @@ public class EntityReplacedEnderman extends EntityAnimal
     protected boolean isAIEnabled() {
     	return true;
     }
-    
+    @Override
+    public boolean interact(EntityPlayer player) {
+    	player.mountEntity(this);
+    	return true;
+    }
     @Override
     public boolean canBeSteered() {
     	return true;
