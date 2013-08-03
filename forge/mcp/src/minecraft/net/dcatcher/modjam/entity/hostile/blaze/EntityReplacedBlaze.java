@@ -6,6 +6,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIControlledByPlayer;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySmallFireball;
@@ -30,6 +32,9 @@ public class EntityReplacedBlaze extends EntityAnimal
         this.isImmuneToFire = true;
         this.experienceValue = 10;
         this.tasks.addTask(0, new EntityAIControlledByPlayer(this, 0.6F));
+        this.tasks.addTask(1, new EntityAIWander(this, 0.5D));
+        this.tasks.addTask(2, new EntityAILookIdle(this));
+        
     }
 
     protected void func_110147_ax()
