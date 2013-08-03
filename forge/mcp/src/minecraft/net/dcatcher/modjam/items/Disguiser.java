@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.dcatcher.modjam.ModJam;
 import net.dcatcher.modjam.entity.cow.EntityReplacedCow;
+import net.dcatcher.modjam.entity.hostile.blaze.EntityReplacedBlaze;
 import net.dcatcher.modjam.entity.hostile.enderman.EntityReplacedEnderman;
 import net.dcatcher.modjam.entity.hostile.spider.EntityReplacedSpider;
 import net.dcatcher.modjam.entity.sheep.EntityReplacedSheep;
@@ -15,6 +16,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIControlledByPlayer;
 import net.minecraft.entity.item.EntityFallingSand;
+import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -117,6 +119,21 @@ public class Disguiser extends Item {
 				
 				replacedMob.tasks.addTask(1, new EntityAIControlledByPlayer(replacedMob, 1F));
 				}
+			
+			if(entity instanceof EntityBlaze ){
+				entity.setDead();
+				Entity e = new EntityReplacedBlaze(world);
+				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
+				if(!world.isRemote){
+					world.spawnEntityInWorld(e);
+				}
+				
+				
+				EntityLiving replacedMob = (EntityLiving)e;
+				
+				replacedMob.tasks.addTask(1, new EntityAIControlledByPlayer(replacedMob, 1F));
+				}
+			
 			player.clearItemInUse();
 			
 			return true;
