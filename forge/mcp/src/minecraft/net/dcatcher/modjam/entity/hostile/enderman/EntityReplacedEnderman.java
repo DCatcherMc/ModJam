@@ -48,7 +48,6 @@ public class EntityReplacedEnderman extends EntityAnimal
         this.tasks.addTask(1, new EntityAIWander(this, 1D));
         this.tasks.addTask(2, new EntityAILookIdle(this));
 
-
     }
     
     @Override
