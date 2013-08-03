@@ -30,11 +30,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class Disguiser extends Item {
+public class ItemMobTamer extends Item {
 
-	public Disguiser(int par1) {
+	public ItemMobTamer(int par1) {
 		super(par1);
-		setUnlocalizedName("disguiser");
+		setUnlocalizedName("mobTamer");
 		setMaxStackSize(1);
 		setCreativeTab(ModJam.tabJam);
 	}
