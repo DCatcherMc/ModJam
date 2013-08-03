@@ -49,7 +49,7 @@ public class ModJam {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e){
 		DCConfig.registerConfig(e.getModConfigurationDirectory());
-		MinecraftForge.EVENT_BUS.register(net.dcatcher.modjam.utils.EventHandler.class);
+		MinecraftForge.EVENT_BUS.register(new net.dcatcher.modjam.utils.EventHandler());
 	}
 	
 	@EventHandler

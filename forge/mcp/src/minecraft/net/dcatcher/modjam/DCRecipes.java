@@ -21,5 +21,7 @@ public class DCRecipes {
 	
 		GameRegistry.addShapelessRecipe(stackDiamondShard9, stackDiamond1);
 		GameRegistry.addShapedRecipe(stackDiamond1, "ddd","ddd", "ddd", 'd', stackDiamondShard9);
+		
+		GameRegistry.addSmelting(ItemHandler.itemMuttonRaw.itemID, new ItemStack(ItemHandler.itemMuttonCooked, 1), 2f);
 	}
 }
