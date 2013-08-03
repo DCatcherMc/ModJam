@@ -12,33 +12,16 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 
 public class EventHandler {
 
-	
 	@ForgeSubscribe
-	public void onMobDeath(LivingDeathEvent e){
-		Entity entity = e.entity;
-		DamageSource source = e.source;
-		
-		if(source == DamageSource.magic){
-			if (entity instanceof EntityPig){
-				entity.dropItem(ItemHandler.itemPorkInfused.itemID, 1);
-			}
-			if(entity instanceof EntityCow){
-				entity.dropItem(ItemHandler.itemBeefInfused.itemID, 1);
-			}
-			if(entity instanceof EntitySheep){
-				entity.dropItem(ItemHandler.itemMuttonInfused.itemID, 1);
-			}
-		}
-		
-		
-		if(entity instanceof EntitySheep){
-			entity.dropItem(ItemHandler.itemMuttonRaw.itemID, 2);
+	public void onDeath(LivingDeathEvent event){
+		if(event.entityLiving instanceof EntitySheep){
+			event.entityLiving.dropItem(ItemHandler.itemMuttonRaw.itemID, 2);
 		}
 	}
-	
 }
