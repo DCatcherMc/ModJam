@@ -51,7 +51,7 @@ public class ModJam {
 	public void preInit(FMLPreInitializationEvent e){
 		DCConfig.registerConfig(e.getModConfigurationDirectory());
 		MinecraftForge.EVENT_BUS.register(new net.dcatcher.modjam.utils.EventHandler());
-		MinecraftForge.EVENT_BUS.register(new WOGEventHandler());
+	//	MinecraftForge.EVENT_BUS.register(new WOGEventHandler());
 	}
 	
 	@EventHandler

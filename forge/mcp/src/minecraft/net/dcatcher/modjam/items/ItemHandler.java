@@ -17,7 +17,7 @@ public class ItemHandler {
 		diamondShard = new ItemDiamondShard(DCConfig.idDiamondShard -256);
 		
 		disguiser = new ItemMobTamer(DCConfig.idDisguiser -256);
-		wandOfGrowth = new ItemWandOfGrowth(DCConfig.idWandofGrowth -256);
+		//wandOfGrowth = new ItemWandOfGrowth(DCConfig.idWandofGrowth -256);
 		
 		
 		itemBeefInfused = new ItemBeefInfused(DCConfig.idBeefInfused - 256);

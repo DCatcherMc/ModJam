@@ -42,7 +42,7 @@ public class EntityReplacedEnderman extends EntityAnimal
     public EntityReplacedEnderman(World par1World)
     {
         super(par1World);
-        this.setSize(0.6F, 4F);
+        this.setSize(0.6F, 3.6F);
         this.stepHeight = 1.0F;
         this.tasks.addTask(0, new EntityAIControlledByPlayer(this, 0.6F));
         this.tasks.addTask(1, new EntityAIWander(this, 1D));

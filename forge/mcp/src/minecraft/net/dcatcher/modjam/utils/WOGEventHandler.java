@@ -9,7 +9,7 @@ import net.minecraftforge.event.entity.player.EntityInteractEvent;
 public class WOGEventHandler {
 
 	
-	@ForgeSubscribe
+/*	@ForgeSubscribe
 	public void onInteract(EntityInteractEvent event){
 		EntityPlayer player = event.entityPlayer;
 		if(event.entityLiving != null && event.entityLiving.isChild()){
@@ -18,4 +18,5 @@ public class WOGEventHandler {
 		}
 	
 	}
+	*/
 }
