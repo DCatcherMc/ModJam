@@ -31,7 +31,7 @@ public class EntityReplacedSpider extends EntityAnimal
 	
 	 public boolean isAIEnabled()
 	    {
-	        return false;
+	        return true;
 	    }
 	 
 	protected void func_110147_ax()

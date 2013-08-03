@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIControlledByPlayer;
+import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.attributes.AttributeInstance;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityMob;
@@ -40,12 +41,13 @@ public class EntityReplacedEnderman extends EntityMob
         super(par1World);
         this.setSize(0.6F, 2.9F);
         this.stepHeight = 1.0F;
+        this.tasks.addTask(1, new EntityAIWander(this, 5));
 
     }
     
     @Override
     protected boolean isAIEnabled() {
-    	return false;
+    	return true;
     }
     
     @Override
