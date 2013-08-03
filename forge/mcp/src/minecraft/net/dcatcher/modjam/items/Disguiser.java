@@ -1,5 +1,7 @@
 package net.dcatcher.modjam.items;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.dcatcher.modjam.ModJam;
 import net.dcatcher.modjam.entity.sheep.EntityReplacedSheep;
 import net.minecraft.block.material.Material;
@@ -35,7 +37,7 @@ public class Disguiser extends Item {
 		if(entity instanceof EntityFallingSand){
 			return false;
 		}
-		if(entity instanceof EntitySheep){
+		if(entity instanceof EntitySheep ){
 			double xCoord = entity.posX;
 			double yCoord = entity.posY;
 			double zCoord = entity.posZ;
@@ -47,17 +49,20 @@ public class Disguiser extends Item {
 			entity.setDead();
 			Entity e = new EntityReplacedSheep(world);
 			e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
-			world.spawnEntityInWorld(e);
+			if(!world.isRemote){
+				world.spawnEntityInWorld(e);
+			}
 			
-			world.updateEntities();
 			EntityLiving replacedMob = (EntityLiving)e;
 			replacedMob.tasks.addTask(1, new EntityAIControlledByPlayer(replacedMob, 1F));
-			player.mountEntity(replacedMob);
+			world.updateEntities();
 		
 		}
 		
 		
 	return true;
 	}
+	
+	
 
 }

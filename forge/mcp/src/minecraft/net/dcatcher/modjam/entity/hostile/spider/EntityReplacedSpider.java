@@ -1,5 +1,6 @@
 package net.dcatcher.modjam.entity.hostile.spider;
 
+import ibxm.Player;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -33,6 +34,12 @@ public class EntityReplacedSpider extends EntityAnimal
 	    {
 	        return true;
 	    }
+	 
+	 @Override
+	public boolean interact(EntityPlayer player) {
+		player.mountEntity(this);
+		return true;
+	}
 	 
 	protected void func_110147_ax()
     {

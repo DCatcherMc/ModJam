@@ -147,9 +147,10 @@ public class EntityReplacedSheep extends EntityAnimal implements IShearable
     /**
      * Called when a player interacts with a mob. e.g. gets milk from a cow, gets into the saddle on a pig.
      */
-    public boolean interact(EntityPlayer par1EntityPlayer)
-    {
-        return super.interact(par1EntityPlayer);
+    public boolean interact(EntityPlayer player)
+    {	
+    	player.mountEntity(this);
+        return true;
     }
 
     @SideOnly(Side.CLIENT)
