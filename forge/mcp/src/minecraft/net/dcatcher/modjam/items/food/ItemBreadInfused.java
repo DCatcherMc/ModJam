@@ -19,6 +19,6 @@ public class ItemBreadInfused extends ItemFood {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister ir) {
-		ir.registerIcon("dcmodjam:bread_infused");
+		itemIcon = ir.registerIcon("dcmodjam:infused_bread");
 	}
 }

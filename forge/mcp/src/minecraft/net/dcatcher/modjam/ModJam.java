@@ -61,6 +61,8 @@ public class ModJam {
 		DCRecipes.registerRecipes();
 		
 		GameRegistry.registerTileEntity(TileEntityInfernalBurner.class, "tileEntityInfernalBurner");
+		
+		MinecraftForge.EVENT_BUS.register(net.dcatcher.modjam.utils.EventHandler.class);
 	
 		
 		

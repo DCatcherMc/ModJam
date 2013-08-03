@@ -18,7 +18,7 @@ public class ItemMuttonInfused extends ItemFood {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister ir) {
-		itemIcon = ir.registerIcon("dcmodjam:mutton_infused");
+		itemIcon = ir.registerIcon("dcmodjam:infused_mutton");
 	}
 	
 	
