@@ -25,23 +25,19 @@ public class ClientProxy extends CommonProxy{
 
 	public static void registerRendering() {
 		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedSheep.class, new RenderReplacedSheep(new ModelSheep2(), new ModelSheep1(), 0.7F));
-		EntityRegistry.registerModEntity(EntityReplacedSheep.class, "ReplacedSheep", 1, ModJam.instance, 80, 3, true);
-		registerEntityEgg(EntityReplacedSheep.class, 0xffffff, 0x000000);
+		EntityRegistry.registerModEntity(EntityReplacedSheep.class, "TamedSheep", 1, ModJam.instance, 80, 3, true);
 		
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedCow.class, new RenderReplacedCow(new ModelCow(), 0.7F));
-		EntityRegistry.registerModEntity(EntityReplacedCow.class, "ReplacedCow", 2, ModJam.instance, 80, 3, true);
-		registerEntityEgg(EntityReplacedCow.class, 0x545454, 0x111111);
+		EntityRegistry.registerModEntity(EntityReplacedCow.class, "TamedCow", 2, ModJam.instance, 80, 3, true);
 		
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedEnderman.class, new RenderReplacedEnderman());
-		EntityRegistry.registerModEntity(EntityReplacedEnderman.class, "ReplacedEnderman", 3, ModJam.instance, 80, 3, true);
-		registerEntityEgg(EntityReplacedEnderman.class, 0x000000, 0x999999);
+		EntityRegistry.registerModEntity(EntityReplacedEnderman.class, "TamedEnderman", 3, ModJam.instance, 80, 3, true);
 		
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedSpider.class, new RenderReplacedSpider());
-		EntityRegistry.registerModEntity(EntityReplacedSpider.class, "ReplacedSpider", 4, ModJam.instance, 80, 3, true);
-		registerEntityEgg(EntityReplacedSpider.class, 0x000000, 0x1111111);
+		EntityRegistry.registerModEntity(EntityReplacedSpider.class, "TamedSpider", 4, ModJam.instance, 80, 3, true);
 	}
 	
 	public static int getUniqueEntityId() 

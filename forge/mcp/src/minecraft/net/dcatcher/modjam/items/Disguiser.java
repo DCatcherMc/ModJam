@@ -30,6 +30,7 @@ public class Disguiser extends Item {
 	public Disguiser(int par1) {
 		super(par1);
 		setUnlocalizedName("disguiser");
+		setMaxStackSize(1);
 		setCreativeTab(ModJam.tabJam);
 	}
 	
@@ -116,9 +117,9 @@ public class Disguiser extends Item {
 				
 				replacedMob.tasks.addTask(1, new EntityAIControlledByPlayer(replacedMob, 1F));
 				}
+			player.clearItemInUse();
 			
-			stack.splitStack(1);
-	return true;
+			return true;
 	}
 	
 	
