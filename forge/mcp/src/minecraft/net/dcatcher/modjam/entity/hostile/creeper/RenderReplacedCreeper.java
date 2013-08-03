@@ -29,7 +29,7 @@ public class RenderReplacedCreeper extends RenderLiving
     /**
      * Updates creeper scale in prerender callback
      */
-    protected void updateCreeperScale(EntityCreeper par1EntityCreeper, float par2)
+    protected void updateCreeperScale(EntityReplacedCreeper par1EntityCreeper, float par2)
     {
         float f1 = par1EntityCreeper.getCreeperFlashIntensity(par2);
         float f2 = 1.0F + MathHelper.sin(f1 * 100.0F) * f1 * 0.01F;
@@ -54,7 +54,7 @@ public class RenderReplacedCreeper extends RenderLiving
     /**
      * Updates color multiplier based on creeper state called by getColorMultiplier
      */
-    protected int updateCreeperColorMultiplier(EntityCreeper par1EntityCreeper, float par2, float par3)
+    protected int updateCreeperColorMultiplier(EntityReplacedCreeper par1EntityCreeper, float par2, float par3)
     {
         float f2 = par1EntityCreeper.getCreeperFlashIntensity(par3);
 
@@ -86,10 +86,8 @@ public class RenderReplacedCreeper extends RenderLiving
     /**
      * A method used to render a creeper's powered form as a pass model.
      */
-    protected int renderCreeperPassModel(EntityCreeper par1EntityCreeper, int par2, float par3)
+    protected int renderCreeperPassModel(EntityReplacedCreeper par1EntityCreeper, int par2, float par3)
     {
-        if (par1EntityCreeper.getPowered())
-        {
             if (par1EntityCreeper.isInvisible())
             {
                 GL11.glDepthMask(false);
@@ -126,17 +124,16 @@ public class RenderReplacedCreeper extends RenderLiving
                 GL11.glEnable(GL11.GL_LIGHTING);
                 GL11.glDisable(GL11.GL_BLEND);
             }
-        }
 
         return -1;
     }
 
-    protected int func_77061_b(EntityCreeper par1EntityCreeper, int par2, float par3)
+    protected int func_77061_b(EntityReplacedCreeper par1EntityCreeper, int par2, float par3)
     {
         return -1;
     }
 
-    protected ResourceLocation func_110829_a(EntityCreeper par1EntityCreeper)
+    protected ResourceLocation func_110829_a(EntityReplacedCreeper par1EntityCreeper)
     {
         return field_110830_f;
     }
@@ -147,7 +144,7 @@ public class RenderReplacedCreeper extends RenderLiving
      */
     protected void preRenderCallback(EntityLivingBase par1EntityLivingBase, float par2)
     {
-        this.updateCreeperScale((EntityCreeper)par1EntityLivingBase, par2);
+        this.updateCreeperScale((EntityReplacedCreeper)par1EntityLivingBase, par2);
     }
 
     /**
@@ -155,7 +152,7 @@ public class RenderReplacedCreeper extends RenderLiving
      */
     protected int getColorMultiplier(EntityLivingBase par1EntityLivingBase, float par2, float par3)
     {
-        return this.updateCreeperColorMultiplier((EntityCreeper)par1EntityLivingBase, par2, par3);
+        return this.updateCreeperColorMultiplier((EntityReplacedCreeper)par1EntityLivingBase, par2, par3);
     }
 
     /**
@@ -163,16 +160,16 @@ public class RenderReplacedCreeper extends RenderLiving
      */
     protected int shouldRenderPass(EntityLivingBase par1EntityLivingBase, int par2, float par3)
     {
-        return this.renderCreeperPassModel((EntityCreeper)par1EntityLivingBase, par2, par3);
+        return this.renderCreeperPassModel((EntityReplacedCreeper)par1EntityLivingBase, par2, par3);
     }
 
     protected int inheritRenderPass(EntityLivingBase par1EntityLivingBase, int par2, float par3)
     {
-        return this.func_77061_b((EntityCreeper)par1EntityLivingBase, par2, par3);
+        return this.func_77061_b((EntityReplacedCreeper)par1EntityLivingBase, par2, par3);
     }
 
     protected ResourceLocation func_110775_a(Entity par1Entity)
     {
-        return this.func_110829_a((EntityCreeper)par1Entity);
+        return this.func_110829_a((EntityReplacedCreeper)par1Entity);
     }
 }
