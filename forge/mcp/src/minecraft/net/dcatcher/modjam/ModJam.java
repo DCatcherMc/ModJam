@@ -13,6 +13,7 @@ import net.dcatcher.modjam.utils.DCConfig;
 import net.dcatcher.modjam.utils.DCCreativeTab;
 import net.dcatcher.modjam.utils.DCPacketHandler;
 import net.dcatcher.modjam.utils.LanguageHandler;
+import net.dcatcher.modjam.utils.WOGEventHandler;
 import net.minecraft.client.renderer.entity.RenderSheep;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -50,6 +51,7 @@ public class ModJam {
 	public void preInit(FMLPreInitializationEvent e){
 		DCConfig.registerConfig(e.getModConfigurationDirectory());
 		MinecraftForge.EVENT_BUS.register(new net.dcatcher.modjam.utils.EventHandler());
+		MinecraftForge.EVENT_BUS.register(new WOGEventHandler());
 	}
 	
 	@EventHandler
