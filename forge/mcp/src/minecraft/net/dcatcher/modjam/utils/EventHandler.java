@@ -49,11 +49,13 @@ public class EventHandler {
 		float yaw = entity.rotationYaw;
 		float pitch = entity.rotationPitch;
 		
-		if(player.getCurrentEquippedItem().itemID == ItemHandler.disguiser.itemID){
+		if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().itemID == ItemHandler.disguiser.itemID){
 			if(entity instanceof EntitySheep){
+				int color = ((EntitySheep) entity).getFleeceColor();
 				entity.setDead();
-				Entity e = new EntityReplacedSheep(world);
+				EntityReplacedSheep e = new EntityReplacedSheep(world);
 				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
+				e.setFleeceColor(color);
 				if(!world.isRemote){
 					world.spawnEntityInWorld(e);
 				}
@@ -101,9 +103,6 @@ public class EventHandler {
 				((EntityPig) entity).setSaddled(true);
 				}
 			
-			else{
-				player.sendChatToPlayer(ChatMessageComponent.func_111066_d("You Cant tame this"));
-			}
 		}
 	}
 }
