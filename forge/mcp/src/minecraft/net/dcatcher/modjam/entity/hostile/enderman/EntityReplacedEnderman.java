@@ -3,12 +3,15 @@ package net.dcatcher.modjam.entity.hostile.enderman;
 import java.util.UUID;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIControlledByPlayer;
+import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.attributes.AttributeInstance;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,7 +25,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 
-public class EntityReplacedEnderman extends EntityMob
+public class EntityReplacedEnderman extends EntityAnimal
 {
     private static final UUID field_110192_bp = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291A0");
     private static final AttributeModifier field_110193_bq = (new AttributeModifier(field_110192_bp, "Attacking speed boost", 6.199999809265137D, 0)).func_111168_a(false);
@@ -41,7 +44,9 @@ public class EntityReplacedEnderman extends EntityMob
         super(par1World);
         this.setSize(0.6F, 2.9F);
         this.stepHeight = 1.0F;
-        this.tasks.addTask(1, new EntityAIWander(this, 5));
+        this.tasks.addTask(1, new EntityAIWander(this, 1D));
+        this.tasks.addTask(2, new EntityAILookIdle(this));
+
 
     }
     
@@ -60,7 +65,6 @@ public class EntityReplacedEnderman extends EntityMob
         super.func_110147_ax();
         this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(40.0D);
         this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.30000001192092896D);
-        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(7.0D);
     }
 
     protected void entityInit()
@@ -531,5 +535,11 @@ public class EntityReplacedEnderman extends EntityMob
         carriableBlocks[Block.melon.blockID] = true;
         carriableBlocks[Block.mycelium.blockID] = true;
     }
+
+	@Override
+	public EntityAgeable createChild(EntityAgeable entityageable) {
+		return null;	 //Its an enderman! They can't have CHILDREN!!
+						 // TODO: Baby Endermen :D
+	}
     
 }

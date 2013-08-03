@@ -20,7 +20,7 @@ import org.lwjgl.opengl.GL12;
 public class RenderReplacedEnderman extends RenderLiving
 {
     private static final ResourceLocation field_110840_a = new ResourceLocation("textures/entity/enderman/enderman_eyes.png");
-    private static final ResourceLocation field_110839_f = new ResourceLocation("textures/entity/enderman/enderman.png");
+    private static final ResourceLocation field_110839_f = new ResourceLocation("dcmodjam:textures/entity/enderman/enderman.png");
 
     /** The model of the enderman */
     private ModelEnderman endermanModel;
@@ -161,5 +161,6 @@ public class RenderReplacedEnderman extends RenderLiving
     public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
     {
         this.renderEnderman((EntityReplacedEnderman)par1Entity, par2, par4, par6, par8, par9);
+        
     }
 }
