@@ -31,7 +31,7 @@ DCatcher ModJam
 
 It should then compile the jar file, provided you have added java to your path variable and have a setup mcp environment :)
 
-+ Every hour I am modding, I shall upload the latest built jar file, so you don't have to build it if you don't want to.
++ Every so often, I shall upload the latest built jar file, so you don't have to build it if you don't want to.
 
 Test Commit pre-modjam :D
 
@@ -40,7 +40,13 @@ Test Commit pre-modjam :D
 How To actually play it.. for now :)
 =======================================
 1) Go into creative, and spawn some Replaced Cows/Sheep
+
 2) Spawn in a MobRider(TM)
+
 3) Click on the Replaced Cow/Sheep, and you can RIDE THEM!
+
 (Slightly temperamental -> much like the vanilla piggies :))
 
+Are the mobs not following your command?
+
+Ask yourself one question.. how would YOU like it if someone came along and shoved a saddle on YOUR back/head.. They need to have a chance to realise what has happened and when they are comfortable, then they will move for themselves. After they have moved, then they should follow your every will!
