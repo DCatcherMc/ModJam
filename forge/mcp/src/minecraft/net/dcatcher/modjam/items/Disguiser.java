@@ -105,6 +105,9 @@ public class Disguiser extends Item {
 				
 				replacedMob.tasks.addTask(1, new EntityAIControlledByPlayer(replacedMob, 1F));
 				}
+			else{
+				return false;
+			}
 	return true;
 	}
 	
