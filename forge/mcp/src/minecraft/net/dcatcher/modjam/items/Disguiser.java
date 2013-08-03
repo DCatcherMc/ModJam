@@ -9,6 +9,7 @@ import net.dcatcher.modjam.entity.hostile.spider.EntityReplacedSpider;
 import net.dcatcher.modjam.entity.sheep.EntityReplacedSheep;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,6 +17,7 @@ import net.minecraft.entity.ai.EntityAIControlledByPlayer;
 import net.minecraft.entity.item.EntityFallingSand;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntitySpider;
+import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,6 +31,12 @@ public class Disguiser extends Item {
 		super(par1);
 		setUnlocalizedName("disguiser");
 		setCreativeTab(ModJam.tabJam);
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister ir) {
+		itemIcon = ir.registerIcon("dcmodjam:mystic_saddle");
 	}
 	
 	@Override
@@ -105,9 +113,11 @@ public class Disguiser extends Item {
 				
 				replacedMob.tasks.addTask(1, new EntityAIControlledByPlayer(replacedMob, 1F));
 				}
-			else{
+			else if(entity instanceof EntityAnimal){
 				return false;
 			}
+			
+			stack.splitStack(1);
 	return true;
 	}
 	
