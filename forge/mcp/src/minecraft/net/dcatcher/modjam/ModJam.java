@@ -49,6 +49,7 @@ public class ModJam {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e){
 		DCConfig.registerConfig(e.getModConfigurationDirectory());
+		MinecraftForge.EVENT_BUS.register(net.dcatcher.modjam.utils.EventHandler.class);
 	}
 	
 	@EventHandler
@@ -62,12 +63,6 @@ public class ModJam {
 		
 		GameRegistry.registerTileEntity(TileEntityInfernalBurner.class, "tileEntityInfernalBurner");
 		
-		MinecraftForge.EVENT_BUS.register(net.dcatcher.modjam.utils.EventHandler.class);
-	
-		
-		
-		
-
 	}
 	
 	@EventHandler
