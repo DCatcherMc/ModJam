@@ -11,6 +11,7 @@ import net.dcatcher.modjam.proxy.CommonProxy;
 import net.dcatcher.modjam.tileentities.TileEntityInfernalBurner;
 import net.dcatcher.modjam.utils.DCConfig;
 import net.dcatcher.modjam.utils.DCCreativeTab;
+import net.dcatcher.modjam.utils.DCPacketHandler;
 import net.dcatcher.modjam.utils.LanguageHandler;
 import net.minecraft.client.renderer.entity.RenderSheep;
 import net.minecraft.creativetab.CreativeTabs;
@@ -32,7 +33,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 
 @Mod(modid="DCatcherModJam", name="DCatcherModJam", version="p1")
-@NetworkMod(clientSideRequired=true, serverSideRequired=false)
+@NetworkMod(clientSideRequired=true, serverSideRequired=false, channels={"DCModJam"}, packetHandler	= DCPacketHandler.class)
 public class ModJam {
 	
 
