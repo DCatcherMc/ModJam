@@ -104,5 +104,6 @@ public class EventHandler {
 				}
 			
 		}
+		player.inventory.decrStackSize(player.inventory.currentItem, 1);
 	}
 }
