@@ -46,8 +46,12 @@ public class Disguiser extends Item {
 			World world = entity.worldObj;
 			entity.setDead();
 			Entity e = new EntityReplacedSheep(world);
-			world.spawnEntityInWorld(new EntityReplacedSheep(world));
-			e.setPositionAndRotation(xCoord, yCoord, zCoord, yaw, pitch);
+			
+			if(!world.isRemote){
+				world.spawnEntityInWorld(new EntityReplacedSheep(world));
+				e.setPositionAndRotation(xCoord, yCoord, zCoord, yaw, pitch);
+			}
+			world.updateEntities();
 			EntityLiving replacedMob = (EntityLiving)e;
 			replacedMob.tasks.addTask(1, new EntityAIControlledByPlayer(replacedMob, 1F));
 			player.mountEntity(replacedMob);
