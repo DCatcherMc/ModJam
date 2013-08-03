@@ -7,20 +7,18 @@ import net.dcatcher.modjam.utils.DCModInfo;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemFood;
 
-public class ItemMuttonInfused extends ItemFood {
+public class ItemBreadInfused extends ItemFood {
 
-	public ItemMuttonInfused(int par1){
-		super(par1, 10, 0.9F, true);
+	public ItemBreadInfused(int id){
+		super(id, 7, 0.9F, false);
+		setUnlocalizedName(DCModInfo.FOOD_BREAD_I_NAME);
 		setCreativeTab(ModJam.tabJam);
-		setUnlocalizedName(DCModInfo.FOOD_MUTTON_I_NAME);
 	}
+	
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister ir) {
-		itemIcon = ir.registerIcon("dcmodjam:mutton_infused");
+		ir.registerIcon("dcmodjam:bread_infused");
 	}
-	
-	
-
 }
