@@ -18,7 +18,7 @@ public class EventHandler {
 	
 	@ForgeSubscribe
 	public void onMobDeath(LivingDeathEvent e){
-		Entity entity = e.entity;
+	/*	Entity entity = e.entity;
 		DamageSource source = e.source;
 		
 		if(source == DamageSource.magic){
@@ -26,7 +26,7 @@ public class EventHandler {
 				entity.dropItem(par1, par2);
 				//TODO Items!
 			}
-		}
+		}*/
 	}
 	
 }
