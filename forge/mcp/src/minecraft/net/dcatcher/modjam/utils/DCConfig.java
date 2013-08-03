@@ -12,7 +12,7 @@ public class DCConfig {
 	public static int idDiamondShard;
 	
 	public static int idDisguiser;
-	public static int idBeefInfused, idPorkInfused, idMutton, idMuttonInfused, idBreadInfused, idAppleInfused;
+	public static int idBeefInfused, idPorkInfused, idMuttonRaw, idMuttonCooked, idMuttonInfused, idBreadInfused, idAppleInfused;
 	
 	public static void registerConfig(File directory){
 		File configFile = new File(directory + "/DCatcher.cfg");
@@ -38,10 +38,11 @@ public class DCConfig {
 		//Foods:
 		idBeefInfused = c.getItem("InfusedBeef", 5010).getInt();
 		idPorkInfused = c.getItem("InfusedPork", 5011).getInt();
-		idMutton = c.getItem("Mutton", 5012).getInt();
-		idMuttonInfused = c.getItem("InfusedMutton", 5013).getInt();
-		idBreadInfused = c.getItem("InfusedBread", 5014).getInt();
-		idAppleInfused = c.getItem("InfusedApple", 5015).getInt();
+		idMuttonRaw = c.getItem("MuttonRaw", 5012).getInt();
+		idMuttonCooked = c.getItem("MuttonCooked", 5013).getInt();
+		idMuttonInfused = c.getItem("InfusedMutton", 5014).getInt();
+		idBreadInfused = c.getItem("InfusedBread", 5015).getInt();
+		idAppleInfused = c.getItem("InfusedApple", 5016).getInt();
 		
 		
 		

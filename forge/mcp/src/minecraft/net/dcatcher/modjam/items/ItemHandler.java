@@ -10,7 +10,7 @@ public class ItemHandler {
 	
 	public static Item disguiser;
 	
-	public static Item itemBeefInfused, itemPorkInfused, itemMutton, itemMuttonInfused,
+	public static Item itemBeefInfused, itemPorkInfused, itemMuttonRaw, itemMuttonCooked, itemMuttonInfused,
 						itemBreadInfused, itemAppleInfused;
 	
 	public static void registerItems(){
@@ -20,7 +20,8 @@ public class ItemHandler {
 		
 		itemBeefInfused = new ItemBeefInfused(DCConfig.idBeefInfused - 256);
 		itemPorkInfused = new ItemPorkInfused(DCConfig.idPorkInfused - 256);
-		itemMutton = new ItemMutton(DCConfig.idMutton - 256);
+		itemMuttonRaw = new ItemMuttonRaw(DCConfig.idMuttonRaw - 256);
+		itemMuttonCooked = new ItemMuttonCooked(DCConfig.idMuttonCooked - 256);
 		itemMuttonInfused = new ItemMuttonInfused(DCConfig.idMuttonInfused - 256);
 		itemBreadInfused = new ItemBreadInfused(DCConfig.idBreadInfused - 256);
 		itemAppleInfused = new ItemAppleInfused(DCConfig.idAppleInfused - 256);
