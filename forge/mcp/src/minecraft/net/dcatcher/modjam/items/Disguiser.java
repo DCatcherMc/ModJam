@@ -135,7 +135,7 @@ public class Disguiser extends Item {
 				
 				replacedMob.tasks.addTask(1, new EntityAIControlledByPlayer(replacedMob, 1F));
 				}
-			
+			world.updateEntities();
 			player.clearItemInUse();
 			
 			return true;

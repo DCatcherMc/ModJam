@@ -26,6 +26,7 @@ public class EntityReplacedBlaze extends EntityAnimal
     public EntityReplacedBlaze(World par1World)
     {
         super(par1World);
+        this.setSize(1, 2);
         this.isImmuneToFire = true;
         this.experienceValue = 10;
         this.tasks.addTask(0, new EntityAIControlledByPlayer(this, 0.6F));

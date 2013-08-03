@@ -88,6 +88,8 @@ public class RenderReplacedCreeper extends RenderLiving
      */
     protected int renderCreeperPassModel(EntityReplacedCreeper par1EntityCreeper, int par2, float par3)
     {
+        if (par1EntityCreeper.getPowered())
+        {
             if (par1EntityCreeper.isInvisible())
             {
                 GL11.glDepthMask(false);
@@ -124,6 +126,7 @@ public class RenderReplacedCreeper extends RenderLiving
                 GL11.glEnable(GL11.GL_LIGHTING);
                 GL11.glDisable(GL11.GL_BLEND);
             }
+        }
 
         return -1;
     }

@@ -44,6 +44,7 @@ public class EntityReplacedCreeper extends EntityAnimal
     public EntityReplacedCreeper(World par1World)
     {
         super(par1World);
+    	this.setSize(1, 2.1F);
         this.tasks.addTask(0, new EntityAIControlledByPlayer(this, 0.7F));
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(3, new EntityAIAvoidEntity(this, EntityOcelot.class, 6.0F, 1.0D, 1.2D));
@@ -58,6 +59,7 @@ public class EntityReplacedCreeper extends EntityAnimal
     protected void func_110147_ax()
     {
         super.func_110147_ax();
+        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.25D);
     }
 
     /**
@@ -68,9 +70,25 @@ public class EntityReplacedCreeper extends EntityAnimal
         return true;
     }
 
+    public int func_82143_as()
+    {
+        return this.getAttackTarget() == null ? 3 : 3 + (int)(this.func_110143_aJ() - 1.0F);
+    }
+
     /**
      * Called when the mob is falling. Calculates and applies fall damage.
      */
+    protected void fall(float par1)
+    {
+        super.fall(par1);
+        this.timeSinceIgnited = (int)((float)this.timeSinceIgnited + par1 * 1.5F);
+
+        if (this.timeSinceIgnited > this.fuseTime - 5)
+        {
+            this.timeSinceIgnited = this.fuseTime - 5;
+        }
+    }
+
     protected void entityInit()
     {
         super.entityInit();
@@ -118,6 +136,45 @@ public class EntityReplacedCreeper extends EntityAnimal
      */
     public void onUpdate()
     {
+        if (this.isEntityAlive())
+        {
+            this.lastActiveTime = this.timeSinceIgnited;
+            int i = this.getCreeperState();
+
+            if (i > 0 && this.timeSinceIgnited == 0)
+            {
+                this.playSound("random.fuse", 1.0F, 0.5F);
+            }
+
+            this.timeSinceIgnited += i;
+
+            if (this.timeSinceIgnited < 0)
+            {
+                this.timeSinceIgnited = 0;
+            }
+
+            if (this.timeSinceIgnited >= this.fuseTime)
+            {
+                this.timeSinceIgnited = this.fuseTime;
+
+                if (!this.worldObj.isRemote)
+                {
+                    boolean flag = this.worldObj.getGameRules().getGameRuleBooleanValue("mobGriefing");
+
+                    if (this.getPowered())
+                    {
+                        this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, (float)(this.explosionRadius * 2), flag);
+                    }
+                    else
+                    {
+                        this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, (float)this.explosionRadius, flag);
+                    }
+
+                    this.setDead();
+                }
+            }
+        }
+
         super.onUpdate();
     }
 
@@ -137,6 +194,19 @@ public class EntityReplacedCreeper extends EntityAnimal
         return "mob.creeper.death";
     }
 
+    public boolean attackEntityAsMob(Entity par1Entity)
+    {
+        return true;
+    }
+
+    /**
+     * Returns true if the creeper is powered by a lightning bolt.
+     */
+    public boolean getPowered()
+    {
+        return this.dataWatcher.getWatchableObjectByte(17) == 1;
+    }
+
     @SideOnly(Side.CLIENT)
 
     /**
@@ -153,6 +223,31 @@ public class EntityReplacedCreeper extends EntityAnimal
     protected int getDropItemId()
     {
         return Item.gunpowder.itemID;
+    }
+
+    /**
+     * Returns the current state of creeper, -1 is idle, 1 is 'in fuse'
+     */
+    public int getCreeperState()
+    {
+        return this.dataWatcher.getWatchableObjectByte(16);
+    }
+
+    /**
+     * Sets the state of creeper, -1 to idle and 1 to be 'in fuse'
+     */
+    public void setCreeperState(int par1)
+    {
+        this.dataWatcher.updateObject(16, Byte.valueOf((byte)par1));
+    }
+
+    /**
+     * Called when a lightning bolt hits the entity.
+     */
+    public void onStruckByLightning(EntityLightningBolt par1EntityLightningBolt)
+    {
+        super.onStruckByLightning(par1EntityLightningBolt);
+        this.dataWatcher.updateObject(17, Byte.valueOf((byte)1));
     }
 
 	@Override

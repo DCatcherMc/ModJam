@@ -45,6 +45,12 @@ public class ClientProxy extends CommonProxy{
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedCreeper.class, new RenderReplacedCreeper());
 		EntityRegistry.registerModEntity(EntityReplacedCreeper.class, "TamedCreeper", 5, ModJam.instance, 80, 3, true);
+		registerEntityEgg(EntityReplacedCreeper.class, 0x111111, 0x222222);
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedBlaze.class, new RenderReplacedBlaze());
+		EntityRegistry.registerModEntity(EntityReplacedBlaze.class, "TamedBlaze", 6, ModJam.instance, 80, 3, true);
+		registerEntityEgg(EntityReplacedBlaze.class, 0x111111, 0x3333333);
+		
 	}
 	
 	public static int getUniqueEntityId() 
