@@ -35,9 +35,25 @@ public class Disguiser extends Item {
 		if(entity instanceof EntityFallingSand){
 			return false;
 		}
-		EntityLiving eLiving = (EntityLiving)entity;
-		eLiving.tasks.addTask(1, new EntityAIControlledByPlayer(eLiving, 1F));
-		player.mountEntity(eLiving);
+		if(entity instanceof EntitySheep){
+			double xCoord = entity.posX;
+			double yCoord = entity.posY;
+			double zCoord = entity.posZ;
+			float yaw = entity.rotationYaw;
+			float pitch = entity.rotationPitch;
+			
+			
+			World world = entity.worldObj;
+			entity.setDead();
+			Entity e = new EntityReplacedSheep(world);
+			world.spawnEntityInWorld(new EntityReplacedSheep(world));
+			e.setPositionAndRotation(xCoord, yCoord, zCoord, yaw, pitch);
+			EntityLiving replacedMob = (EntityLiving)e;
+			replacedMob.tasks.addTask(1, new EntityAIControlledByPlayer(replacedMob, 1F));
+			player.mountEntity(replacedMob);
+		
+		}
+		
 		
 	return true;
 	}
