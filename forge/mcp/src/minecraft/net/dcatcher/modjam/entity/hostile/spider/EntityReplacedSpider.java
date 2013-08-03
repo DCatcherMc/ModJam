@@ -72,5 +72,43 @@ public class EntityReplacedSpider extends EntityAnimal
 		return null;
 	}
 
+	public void onUpdate()
+    {
+        super.onUpdate();
+
+        if (!this.worldObj.isRemote)
+        {
+            this.setBesideClimbableBlock(this.isCollidedHorizontally);
+        }
+    }
+	
+	public boolean isBesideClimbableBlock()
+    {
+        return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
+    }
+	
+	public void setBesideClimbableBlock(boolean par1)
+    {
+        byte b0 = this.dataWatcher.getWatchableObjectByte(16);
+
+        if (par1)
+        {
+            b0 = (byte)(b0 | 1);
+        }
+        else
+        {
+            b0 &= -2;
+        }
+
+        this.dataWatcher.updateObject(16, Byte.valueOf(b0));
+    }
+	
+	protected void entityInit()
+    {
+        super.entityInit();
+        this.dataWatcher.addObject(16, new Byte((byte)0));
+    }
+
+
    
 }
