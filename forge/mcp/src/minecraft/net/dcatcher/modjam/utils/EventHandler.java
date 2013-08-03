@@ -11,13 +11,4 @@ import net.minecraftforge.event.entity.player.EntityInteractEvent;
 
 public class EventHandler {
 
-	@ForgeSubscribe
-	public void entityInteractEvent(EntityInteractEvent e){
-		EntityLiving entity = (EntityLiving)e.target;
-		System.out.println("INTERACTING");
-		if(e.entityPlayer.getCurrentEquippedItem().itemID == ItemHandler.disguiser.itemID){
-		e.entityPlayer.mountEntity(e.target);
-		entity.tasks.addTask(1, new EntityAIControlledByPlayer(entity, 0.34F));
-		}
-	}
 }
