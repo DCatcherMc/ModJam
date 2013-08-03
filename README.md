@@ -15,6 +15,8 @@ and then start compile.bat in the folder OUTSIDE of the forge folder:
 
 eg:
 
+
+
 DCatcher ModJam
 --------------------
 | ---- forge
