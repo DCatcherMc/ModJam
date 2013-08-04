@@ -3,6 +3,7 @@ package net.dcatcher.modjam.utils;
 import net.dcatcher.modjam.entity.cow.EntityReplacedCow;
 import net.dcatcher.modjam.entity.hostile.creeper.EntityReplacedCreeper;
 import net.dcatcher.modjam.entity.hostile.enderman.EntityReplacedEnderman;
+import net.dcatcher.modjam.entity.hostile.slime.EntityReplacedSlime;
 import net.dcatcher.modjam.entity.hostile.spider.EntityReplacedSpider;
 import net.dcatcher.modjam.entity.hostile.zombie.EntityReplacedZombie;
 import net.dcatcher.modjam.entity.sheep.EntityReplacedSheep;
@@ -121,6 +122,11 @@ public class EventHandler {
 			
 			if(entity instanceof EntitySlime){
 				entity.setDead();
+				Entity e = new EntityReplacedSlime(world);
+				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
+				if(!world.isRemote){
+					world.spawnEntityInWorld(e);
+				}
 			}
 			player.inventory.decrStackSize(player.inventory.currentItem, 1);
 		}
