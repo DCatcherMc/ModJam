@@ -24,6 +24,7 @@ public class ItemWandOfRiding extends Item {
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player,
 			Entity entity) {
+
 		
 		if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().itemID == ItemHandler.wandOfRiding.itemID){
 			player.mountEntity(entity);
