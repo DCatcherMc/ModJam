@@ -61,6 +61,7 @@ public class EntityReplacedZombie extends EntityAnimal
         this.tasks.addTask(7, new EntityAILookIdle(this));
     }
 
+    
     protected void func_110147_ax()
     {
         super.func_110147_ax();
