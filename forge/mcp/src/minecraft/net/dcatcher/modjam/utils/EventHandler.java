@@ -31,7 +31,7 @@ public class EventHandler {
 
 	@ForgeSubscribe
 	public void onDeath(LivingDeathEvent event){
-		if(event.entityLiving instanceof EntitySheep){
+		if(event.entityLiving instanceof EntitySheep && !event.entityLiving.isChild()){
 			if(!event.entityLiving.worldObj.isRemote)
 				event.entityLiving.dropItem(ItemHandler.itemMuttonRaw.itemID, 2);
 		}

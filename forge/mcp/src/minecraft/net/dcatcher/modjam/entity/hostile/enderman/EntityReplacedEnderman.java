@@ -1,6 +1,8 @@
 package net.dcatcher.modjam.entity.hostile.enderman;
 
 import java.util.UUID;
+
+import net.dcatcher.modjam.items.ItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
