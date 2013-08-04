@@ -1,7 +1,10 @@
 package net.dcatcher.modjam.items;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.dcatcher.modjam.ModJam;
 import net.dcatcher.modjam.utils.DCModInfo;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -14,6 +17,7 @@ public class ItemWandOfRiding extends Item {
 		setCreativeTab(ModJam.tabJam);
 		setUnlocalizedName(DCModInfo.WAND_OF_RIDING_NAME);
 		setMaxDamage(100);
+		setFull3D();
 		setMaxStackSize(1);
 	}
 	
@@ -27,6 +31,12 @@ public class ItemWandOfRiding extends Item {
 		}
 		
 		return false;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister ir) {
+		itemIcon = ir.registerIcon("dcmodjam:wand_riding");
 	}
 	
 
