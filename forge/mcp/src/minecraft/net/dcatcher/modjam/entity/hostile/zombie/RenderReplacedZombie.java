@@ -30,15 +30,15 @@ public class RenderReplacedZombie extends RenderBiped
 
     public RenderReplacedZombie()
     {
-        super(new ModelZombie(), 0.5F, 1.0F);
+        super(new ModelReplacedZombie(), 0.5F, 1.0F);
         this.field_82434_o = this.modelBipedMain;
         this.field_82432_p = new ModelZombieVillager();
     }
 
     protected void func_82421_b()
     {
-        this.field_82423_g = new ModelZombie(1.0F, true);
-        this.field_82425_h = new ModelZombie(0.5F, true);
+        this.field_82423_g = new ModelReplacedZombie(1.0F, true);
+        this.field_82425_h = new ModelReplacedZombie(0.5F, true);
         this.field_82437_k = this.field_82423_g;
         this.field_82435_l = this.field_82425_h;
         this.field_82436_m = new ModelZombieVillager(1.0F, 0.0F, true);
