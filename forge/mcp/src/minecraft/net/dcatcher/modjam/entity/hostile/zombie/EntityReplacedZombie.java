@@ -1,9 +1,9 @@
 package net.dcatcher.modjam.entity.hostile.zombie;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Calendar;
 import java.util.UUID;
+
+import net.dcatcher.modjam.entity.EntityAIFollowRider;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -11,15 +11,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EntityLivingData;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.entity.ai.EntityAIControlledByPlayer;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.attributes.Attribute;
@@ -37,6 +31,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntityReplacedZombie extends EntityAnimal
 {
@@ -47,6 +43,9 @@ public class EntityReplacedZombie extends EntityAnimal
     /**
      * Ticker used to determine the time remaining for this zombie to convert into a villager when cured.
      */
+    
+    private String lastRidden;
+    
     private int conversionTime;
 
     public EntityReplacedZombie(World par1World)
@@ -56,6 +55,7 @@ public class EntityReplacedZombie extends EntityAnimal
         this.getNavigator().setBreakDoors(true);
         this.tasks.addTask(1, new EntityAIControlledByPlayer(this, 0.7F));
         this.tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, 1.0D));
+        this.tasks.addTask(5, new EntityAIFollowRider(this, (EntityPlayer)this.riddenByEntity, 0.6D));
         this.tasks.addTask(6, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(7, new EntityAILookIdle(this));
@@ -468,6 +468,7 @@ public class EntityReplacedZombie extends EntityAnimal
     public boolean interact(EntityPlayer par1EntityPlayer)
     {
     	par1EntityPlayer.mountEntity(this);
+    	lastRidden = par1EntityPlayer.username;
         return true;
     }
 
