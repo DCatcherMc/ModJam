@@ -60,7 +60,7 @@ public class ModJam {
 	public void Init(FMLInitializationEvent e){
 		BlockHandler.register(); 			//Registers ALL the blocks!
 		ItemHandler.registerItems();		//registers items
-		ClientProxy.registerRendering();
+		proxy.registerRendering();
 		LanguageHandler.registerLangs();	//Registers my language stuffs
 		
 		DCRecipes.registerRecipes();

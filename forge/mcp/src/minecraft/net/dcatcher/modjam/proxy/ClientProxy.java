@@ -24,8 +24,8 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 public class ClientProxy extends CommonProxy{
 	 
 	static int startEntityId = 300;
-
-	public static void registerRendering() {
+	
+	public void registerRendering() {
 		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedSheep.class, new RenderReplacedSheep(new ModelSheep2(), new ModelSheep1(), 0.7F));
 		EntityRegistry.registerModEntity(EntityReplacedSheep.class, "TamedSheep", 1, ModJam.instance, 80, 3, true);
 		

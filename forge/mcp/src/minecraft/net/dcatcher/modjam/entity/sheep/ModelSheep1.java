@@ -11,7 +11,8 @@ import net.minecraft.entity.EntityLivingBase;
 public class ModelSheep1 extends ModelQuadruped
 {
     private float field_78152_i;
-
+    
+    @SideOnly(Side.CLIENT)
     public ModelSheep1()
     {
         super(12, 0.0F);
