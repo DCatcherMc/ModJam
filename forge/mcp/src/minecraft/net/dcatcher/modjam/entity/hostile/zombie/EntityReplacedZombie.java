@@ -52,12 +52,10 @@ public class EntityReplacedZombie extends EntityAnimal
     public EntityReplacedZombie(World par1World)
     {
         super(par1World);
-        this.setSize(0.8f, 2f);
+        this.setSize(0.8f, 2.5f);
         this.getNavigator().setBreakDoors(true);
-        this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIControlledByPlayer(this, 0.7F));
         this.tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(5, new EntityAIMoveThroughVillage(this, 1.0D, false));
         this.tasks.addTask(6, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(7, new EntityAILookIdle(this));

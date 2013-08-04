@@ -35,17 +35,24 @@ public class ModelReplacedZombie extends ModelBiped
     	super.setRotationAngles(par1, par2, par3, par4, par5, par6, par7Entity);
         float f6 = MathHelper.sin(this.onGround * (float)Math.PI);
         float f7 = MathHelper.sin((1.0F - (1.0F - this.onGround) * (1.0F - this.onGround)) * (float)Math.PI);
-        this.bipedRightArm.rotateAngleZ = 0.0F;
+    //    this.bipedRightArm.rotateAngleZ = 0.0F;
         //this.bipedLeftArm.rotateAngleZ = 0.0F;
         this.bipedRightArm.rotateAngleY = -(0.1F - f6 * 0.6F);
         this.bipedLeftArm.rotateAngleY = 0.1F - f6 * 0.6F;
-        this.bipedRightArm.rotateAngleX = -((float)Math.PI / 2F);
-        this.bipedLeftArm.rotateAngleX = -((float)Math.PI / 2F);
-        this.bipedRightArm.rotateAngleX -= f6 * 1.2F - f7 * 0.4F;
+        
+        if(((EntityReplacedZombie) par7Entity).isBeingRidden()){
+        this.bipedRightArm.rotateAngleX = -((float)Math.PI);
+        this.bipedLeftArm.rotateAngleX = -((float)Math.PI); //THIS ONE :D
+        }else{
+            this.bipedRightArm.rotateAngleX = -((float)Math.PI /2);
+            this.bipedLeftArm.rotateAngleX = -((float)Math.PI /2);
+        }
+        
+  //      this.bipedRightArm.rotateAngleX -= f6 * 1.2F - f7 * 0.4F;
        // this.bipedLeftArm.rotateAngleX -= f6 * 1.2F - f7 * 0.4F;
-        this.bipedRightArm.rotateAngleZ += MathHelper.cos(par3 * 0.09F) * 0.05F + 0.05F;
+      //  this.bipedRightArm.rotateAngleZ += MathHelper.cos(par3 * 0.09F) * 0.05F + 0.05F;
         //this.bipedLeftArm.rotateAngleZ -= MathHelper.cos(par3 * 0.09F) * 0.05F + 0.05F;
-        this.bipedRightArm.rotateAngleX += MathHelper.sin(par3 * 0.067F) * 0.05F;
+       // this.bipedRightArm.rotateAngleX += MathHelper.sin(par3 * 0.067F) * 0.05F;
        // this.bipedLeftArm.rotateAngleX -= MathHelper.sin(par3 * 0.067F) * 0.05F;
     }
 }
