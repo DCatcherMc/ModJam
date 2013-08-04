@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIControlledByPlayer;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityEnderman;
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityCow;
@@ -116,7 +117,13 @@ public class EventHandler {
 			if(entity instanceof EntityPig && !entity.isChild()){
 				((EntityPig) entity).setSaddled(true);
 				}
+			
+			
+			if(entity instanceof EntitySlime){
+				entity.setDead();
+			}
 			player.inventory.decrStackSize(player.inventory.currentItem, 1);
 		}
+		
 	}
 }
