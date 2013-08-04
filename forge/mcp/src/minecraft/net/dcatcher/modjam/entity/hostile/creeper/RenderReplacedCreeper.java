@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 public class RenderReplacedCreeper extends RenderLiving
 {
     private static final ResourceLocation field_110831_a = new ResourceLocation("textures/entity/creeper/creeper_armor.png");
-    private static final ResourceLocation field_110830_f = new ResourceLocation("textures/entity/creeper/creeper.png");
+    private static final ResourceLocation field_110830_f = new ResourceLocation("dcmodjam:textures/entity/creeper/creeper.png");
 
     /** The creeper model. */
     private ModelBase creeperModel = new ModelCreeper(2.0F);
