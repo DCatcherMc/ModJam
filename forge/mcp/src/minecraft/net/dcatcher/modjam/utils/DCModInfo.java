@@ -11,13 +11,15 @@ public class DCModInfo {
 	public static final String FOOD_APPLE_I_NAME = "foodAppleInfused";
 	
 	
-	public static String BLOCK_INFUSED_BRICK_UNLOCALIZED = "blockInfusedBrick";
-	public static String BLOCK_INFERNAL_BURNER_UNLOCALIZED = "blockInfernalFurnace";
+	public static final String BLOCK_INFUSED_BRICK_UNLOCALIZED = "blockInfusedBrick";
+	public static final String BLOCK_INFERNAL_BURNER_UNLOCALIZED = "blockInfernalFurnace";
 	
-	public static String ITEM_DIAMOND_SHARD_UNLOCALIZED = "shardDiamond";
-	public static String ITEM_BALL_OF_CRUSHED_DIAMOND_UNLOCALIZED = "ballOfCrushedDiamond";
-	public static String ITEM_TELEPORTER_SHARD = "teleporterShard";
+	public static final String ITEM_DIAMOND_SHARD_UNLOCALIZED = "shardDiamond";
+	public static final String ITEM_BALL_OF_CRUSHED_DIAMOND_UNLOCALIZED = "ballOfCrushedDiamond";
+	public static final String ITEM_TELEPORTER_SHARD = "teleporterShard";
 	
-	public static String WAND_OF_GROWTH_NAME = "wandOfGrowth";
+	public static final String WAND_OF_GROWTH_NAME = "wandOfGrowth";
+	public static final String WAND_OF_RIDING_NAME = "wandOfRiding";
+
 
 }

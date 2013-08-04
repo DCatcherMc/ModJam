@@ -14,6 +14,7 @@ public class DCConfig {
 	public static int idDisguiser;
 	public static int idBeefInfused, idPorkInfused, idMuttonRaw, idMuttonCooked, idMuttonInfused, idBreadInfused, idAppleInfused;
 	public static int idWandofGrowth;
+	public static int idWandofRiding;
 	
 	public static void registerConfig(File directory){
 		File configFile = new File(directory + "/DCatcher.cfg");
@@ -36,6 +37,7 @@ public class DCConfig {
 		
 		idDisguiser = c.getItem("MobTamer", 5001).getInt();
 		idWandofGrowth = c.getItem("WandOfGrowth", 5002).getInt();
+		idWandofRiding = c.getItem("WandOfRiding", 5003).getInt();
 		
 		//Foods:
 		idBeefInfused = c.getItem("InfusedBeef", 5010).getInt();

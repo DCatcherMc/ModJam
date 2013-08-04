@@ -8,7 +8,7 @@ public class ItemHandler {
 
 	public static Item diamondShard;
 	
-	public static Item disguiser, wandOfGrowth;
+	public static Item disguiser, wandOfGrowth, wandOfRiding;
 	
 	public static Item itemBeefInfused, itemPorkInfused, itemMuttonRaw, itemMuttonCooked, itemMuttonInfused,
 						itemBreadInfused, itemAppleInfused;
@@ -18,6 +18,8 @@ public class ItemHandler {
 		
 		disguiser = new ItemMobTamer(DCConfig.idDisguiser -256);
 		//wandOfGrowth = new ItemWandOfGrowth(DCConfig.idWandofGrowth -256);
+		wandOfRiding = new ItemWandOfRiding(DCConfig.idWandofRiding -256);
+		
 		
 		
 		itemBeefInfused = new ItemBeefInfused(DCConfig.idBeefInfused - 256);
