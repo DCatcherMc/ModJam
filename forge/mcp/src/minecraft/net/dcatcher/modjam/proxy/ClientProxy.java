@@ -3,8 +3,6 @@ package net.dcatcher.modjam.proxy;
 import net.dcatcher.modjam.ModJam;
 import net.dcatcher.modjam.entity.cow.EntityReplacedCow;
 import net.dcatcher.modjam.entity.cow.RenderReplacedCow;
-import net.dcatcher.modjam.entity.hostile.blaze.EntityReplacedBlaze;
-import net.dcatcher.modjam.entity.hostile.blaze.RenderReplacedBlaze;
 import net.dcatcher.modjam.entity.hostile.creeper.EntityReplacedCreeper;
 import net.dcatcher.modjam.entity.hostile.creeper.RenderReplacedCreeper;
 import net.dcatcher.modjam.entity.hostile.enderman.EntityReplacedEnderman;

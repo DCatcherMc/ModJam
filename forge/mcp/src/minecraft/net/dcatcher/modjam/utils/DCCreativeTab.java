@@ -10,7 +10,6 @@ public class DCCreativeTab extends CreativeTabs{
 
 	public DCCreativeTab(int par1, String par2Str) {
 		super(par1, par2Str);
-		// TODO Auto-generated constructor stub
 	}
 
 	@SideOnly(Side.CLIENT)
