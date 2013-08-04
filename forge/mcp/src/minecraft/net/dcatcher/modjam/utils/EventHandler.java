@@ -46,21 +46,11 @@ public class EventHandler {
 		int xCoord = 0, yCoord = 0, zCoord = 0;
 		float yaw = 0, pitch = 0;
 		
-		if(world.isRemote){
 		xCoord = (int)entity.posX;
 		yCoord = (int)entity.posY;
 		zCoord = (int)entity.posZ;
 		yaw = entity.rotationYaw;
 		pitch = entity.rotationPitch;
-		}
-		if(!world.isRemote){
-			xCoord = (int)entity.serverPosX;
-			yCoord = (int)entity.serverPosY;
-			zCoord = (int)entity.serverPosZ;
-			yaw = entity.rotationYaw;
-			pitch = entity.rotationPitch;
-		}
-		
 		
 		if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().itemID == ItemHandler.disguiser.itemID){
 			if(entity instanceof EntitySheep){

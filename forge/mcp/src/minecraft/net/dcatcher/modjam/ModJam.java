@@ -1,6 +1,7 @@
 package net.dcatcher.modjam;
 
 import net.dcatcher.modjam.blocks.BlockHandler;
+import net.dcatcher.modjam.entity.EntityHandler;
 import net.dcatcher.modjam.entity.sheep.EntityReplacedSheep;
 import net.dcatcher.modjam.entity.sheep.ModelSheep1;
 import net.dcatcher.modjam.entity.sheep.ModelSheep2;
@@ -60,9 +61,9 @@ public class ModJam {
 	public void Init(FMLInitializationEvent e){
 		BlockHandler.register(); 			//Registers ALL the blocks!
 		ItemHandler.registerItems();		//registers items
-		proxy.registerRendering();
+		proxy.registerRendering();			//Registers the rendering stuffs
 		LanguageHandler.registerLangs();	//Registers my language stuffs
-		
+		EntityHandler.register();			//Registers the entities :)
 		DCRecipes.registerRecipes();
 		
 		GameRegistry.registerTileEntity(TileEntityInfernalBurner.class, "tileEntityInfernalBurner");
