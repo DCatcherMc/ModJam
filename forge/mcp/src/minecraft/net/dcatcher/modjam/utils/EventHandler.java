@@ -98,7 +98,7 @@ public class EventHandler {
 			if(entity instanceof EntityCreeper && !entity.isChild()){
 				entity.setDead();
 				Entity e = new EntityReplacedCreeper(world);
-				e.setLocationAndAngles(xCoord, yCoord + 1, zCoord, yaw, pitch);
+				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
 				if(!world.isRemote){
 					world.spawnEntityInWorld(e);
 				}
@@ -107,7 +107,7 @@ public class EventHandler {
 			if(entity instanceof EntityZombie && !entity.isChild()){
 				entity.setDead();
 				Entity e = new EntityReplacedZombie(world);
-				e.setLocationAndAngles(xCoord, yCoord + 1, zCoord, yaw, pitch);
+				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
 				if(!world.isRemote){
 					world.spawnEntityInWorld(e);
 				}
