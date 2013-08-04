@@ -102,8 +102,7 @@ public class EventHandler {
 			if(entity instanceof EntityPig ){
 				((EntityPig) entity).setSaddled(true);
 				}
-			
+			player.inventory.decrStackSize(player.inventory.currentItem, 1);
 		}
-		player.inventory.decrStackSize(player.inventory.currentItem, 1);
 	}
 }
