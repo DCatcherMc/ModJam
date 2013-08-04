@@ -53,7 +53,7 @@ public class EventHandler {
 		pitch = entity.rotationPitch;
 		
 		if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().itemID == ItemHandler.disguiser.itemID){
-			if(entity instanceof EntitySheep){
+			if(entity instanceof EntitySheep && !entity.isChild()){
 				int color = ((EntitySheep) entity).getFleeceColor();
 				entity.setDead();
 				EntityReplacedSheep e = new EntityReplacedSheep(world);
@@ -65,7 +65,7 @@ public class EventHandler {
 			}
 			
 			
-			if(entity instanceof EntityCow ){
+			if(entity instanceof EntityCow && !entity.isChild()){
 				entity.setDead();
 				Entity e = new EntityReplacedCow(world);
 				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
@@ -74,7 +74,7 @@ public class EventHandler {
 				}
 			}
 				
-			if(entity instanceof EntityEnderman ){
+			if(entity instanceof EntityEnderman && !entity.isChild()){
 				entity.setDead();
 				Entity e = new EntityReplacedEnderman(world);
 				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
@@ -83,7 +83,7 @@ public class EventHandler {
 				}
 			}
 			
-			if(entity instanceof EntitySpider ){
+			if(entity instanceof EntitySpider && !entity.isChild()){
 				entity.setDead();
 				Entity e = new EntityReplacedSpider(world);
 				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
@@ -92,7 +92,7 @@ public class EventHandler {
 				}
 			}
 			
-			if(entity instanceof EntityCreeper ){
+			if(entity instanceof EntityCreeper && !entity.isChild()){
 				entity.setDead();
 				Entity e = new EntityReplacedCreeper(world);
 				e.setLocationAndAngles(xCoord, yCoord + 1, zCoord, yaw, pitch);
@@ -102,7 +102,7 @@ public class EventHandler {
 			}
 			
 			
-			if(entity instanceof EntityPig ){
+			if(entity instanceof EntityPig && !entity.isChild()){
 				((EntityPig) entity).setSaddled(true);
 				}
 			player.inventory.decrStackSize(player.inventory.currentItem, 1);

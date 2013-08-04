@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 @SideOnly(Side.CLIENT)
 public class RenderReplacedSpider extends RenderLiving
 {
-    private static final ResourceLocation field_110891_a = new ResourceLocation("textures/entity/spider_eyes.png");
+    private static final ResourceLocation field_110891_a = new ResourceLocation("dcmodjam:textures/entity/spider/spider_eyes.png");
     private static final ResourceLocation field_110890_f = new ResourceLocation("dcmodjam:textures/entity/spider/spider.png");
 
     public RenderReplacedSpider()
