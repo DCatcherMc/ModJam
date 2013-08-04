@@ -43,20 +43,33 @@ public class EventHandler {
 		EntityPlayer player = event.entityPlayer;
 		World world = event.entity.worldObj;
 		
-		double xCoord = entity.posX;
-		double yCoord = entity.posY;
-		double zCoord = entity.posZ;
-		float yaw = entity.rotationYaw;
-		float pitch = entity.rotationPitch;
+		int xCoord = 0, yCoord = 0, zCoord = 0;
+		float yaw = 0, pitch = 0;
+		
+		if(world.isRemote){
+		xCoord = (int)entity.posX;
+		yCoord = (int)entity.posY;
+		zCoord = (int)entity.posZ;
+		yaw = entity.rotationYaw;
+		pitch = entity.rotationPitch;
+		}
+		if(!world.isRemote){
+			xCoord = (int)entity.serverPosX;
+			yCoord = (int)entity.serverPosY;
+			zCoord = (int)entity.serverPosZ;
+			yaw = entity.rotationYaw;
+			pitch = entity.rotationPitch;
+		}
+		
 		
 		if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().itemID == ItemHandler.disguiser.itemID){
 			if(entity instanceof EntitySheep){
 				int color = ((EntitySheep) entity).getFleeceColor();
 				entity.setDead();
 				EntityReplacedSheep e = new EntityReplacedSheep(world);
-				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
-				e.setFleeceColor(color);
 				if(!world.isRemote){
+					e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
+					e.setFleeceColor(color);
 					world.spawnEntityInWorld(e);
 				}
 			}
