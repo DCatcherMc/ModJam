@@ -18,12 +18,14 @@ public class RenderReplacedZombie extends RenderBiped
 {
     private static final ResourceLocation field_110865_p = new ResourceLocation("textures/entity/zombie/zombie.png");
     private static final ResourceLocation field_110864_q = new ResourceLocation("textures/entity/zombie/zombie_villager.png");
-    private ModelBiped field_82434_o;
+    
+    private ModelBiped field_82434_o; 
     private ModelZombieVillager field_82432_p;
-    protected ModelBiped field_82437_k;
-    protected ModelBiped field_82435_l;
-    protected ModelBiped field_82436_m;
-    protected ModelBiped field_82433_n;
+  
+    protected ModelBiped field_82437_k; 
+    protected ModelBiped field_82435_l; 
+    protected ModelBiped field_82436_m; 
+    protected ModelBiped field_82433_n; 
     private int field_82431_q = 1;
 
     public RenderReplacedZombie()
@@ -160,4 +162,6 @@ public class RenderReplacedZombie extends RenderBiped
     {
         this.func_82426_a((EntityReplacedZombie)par1Entity, par2, par4, par6, par8, par9);
     }
+    
+    
 }

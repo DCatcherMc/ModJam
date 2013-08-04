@@ -499,6 +499,13 @@ public class EntityReplacedZombie extends EntityAnimal
         }
     }
 
+    public boolean isBeingRidden(){
+    	if(this.riddenByEntity != null){
+    		return true;
+    	}
+    	return false;
+    }
+    
     /**
      * Determines if an entity can be despawned, used on idle far away entities
      */
