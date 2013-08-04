@@ -44,7 +44,7 @@ public class EntityReplacedZombie extends EntityAnimal
      * Ticker used to determine the time remaining for this zombie to convert into a villager when cured.
      */
     
-    private String lastRidden;
+    private EntityPlayer lastRidden;
     
     private int conversionTime;
 
@@ -54,8 +54,8 @@ public class EntityReplacedZombie extends EntityAnimal
         this.setSize(0.8f, 2.5f);
         this.getNavigator().setBreakDoors(true);
         this.tasks.addTask(1, new EntityAIControlledByPlayer(this, 0.7F));
+        this.tasks.addTask(2, new EntityAIFollowRider(this, lastRidden, 0.6D));
         this.tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(5, new EntityAIFollowRider(this, (EntityPlayer)this.riddenByEntity, 0.6D));
         this.tasks.addTask(6, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(7, new EntityAILookIdle(this));
@@ -468,7 +468,7 @@ public class EntityReplacedZombie extends EntityAnimal
     public boolean interact(EntityPlayer par1EntityPlayer)
     {
     	par1EntityPlayer.mountEntity(this);
-    	lastRidden = par1EntityPlayer.username;
+    	lastRidden = par1EntityPlayer;
         return true;
     }
 
