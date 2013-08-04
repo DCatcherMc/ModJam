@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.dcatcher.modjam.items.ItemHandler;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 
 public class DCCreativeTab extends CreativeTabs{
 
@@ -13,8 +14,8 @@ public class DCCreativeTab extends CreativeTabs{
 	}
 
 	@SideOnly(Side.CLIENT)
-	public int getItemIndex(){
-		return ItemHandler.disguiser.itemID;
+	public Item getTabIconItem(){
+		return ItemHandler.disguiser;
 	}
 	
 }
