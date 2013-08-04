@@ -13,6 +13,7 @@ import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
+import net.minecraft.entity.ai.EntityAIControlledByPlayer;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
@@ -51,19 +52,15 @@ public class EntityReplacedZombie extends EntityAnimal
     public EntityReplacedZombie(World par1World)
     {
         super(par1World);
+        this.setSize(0.8f, 2f);
         this.getNavigator().setBreakDoors(true);
         this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIBreakDoor(this));
-        this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
-        this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityVillager.class, 1.0D, true));
+        this.tasks.addTask(1, new EntityAIControlledByPlayer(this, 0.7F));
         this.tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(5, new EntityAIMoveThroughVillage(this, 1.0D, false));
         this.tasks.addTask(6, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(7, new EntityAILookIdle(this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, 0, false));
     }
 
     protected void func_110147_ax()
@@ -71,16 +68,15 @@ public class EntityReplacedZombie extends EntityAnimal
         super.func_110147_ax();
         this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(40.0D);
         this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.23000000417232513D);
-        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(3.0D);
         this.func_110140_aT().func_111150_b(field_110186_bp).func_111128_a(this.rand.nextDouble() * 0.10000000149011612D);
     }
 
     protected void entityInit()
     {
         super.entityInit();
-        this.getDataWatcher().addObject(12, Byte.valueOf((byte)0));
-        this.getDataWatcher().addObject(13, Byte.valueOf((byte)0));
-        this.getDataWatcher().addObject(14, Byte.valueOf((byte)0));
+        this.getDataWatcher().addObject(29, Byte.valueOf((byte)0));
+        this.getDataWatcher().addObject(30, Byte.valueOf((byte)0));
+        this.getDataWatcher().addObject(31, Byte.valueOf((byte)0));
     }
 
     /**
@@ -111,7 +107,7 @@ public class EntityReplacedZombie extends EntityAnimal
      */
     public boolean isChild()
     {
-        return this.getDataWatcher().getWatchableObjectByte(12) == 1;
+        return this.getDataWatcher().getWatchableObjectByte(29) == 1;
     }
 
     /**
@@ -119,7 +115,7 @@ public class EntityReplacedZombie extends EntityAnimal
      */
     public void setChild(boolean par1)
     {
-        this.getDataWatcher().updateObject(12, Byte.valueOf((byte)(par1 ? 1 : 0)));
+        this.getDataWatcher().updateObject(29, Byte.valueOf((byte)(par1 ? 1 : 0)));
 
         if (this.worldObj != null && !this.worldObj.isRemote)
         {
@@ -138,7 +134,7 @@ public class EntityReplacedZombie extends EntityAnimal
      */
     public boolean isVillager()
     {
-        return this.getDataWatcher().getWatchableObjectByte(13) == 1;
+        return this.getDataWatcher().getWatchableObjectByte(30) == 1;
     }
 
     /**
@@ -146,7 +142,7 @@ public class EntityReplacedZombie extends EntityAnimal
      */
     public void setVillager(boolean par1)
     {
-        this.getDataWatcher().updateObject(13, Byte.valueOf((byte)(par1 ? 1 : 0)));
+        this.getDataWatcher().updateObject(30, Byte.valueOf((byte)(par1 ? 1 : 0)));
     }
 
     /**
@@ -473,31 +469,8 @@ public class EntityReplacedZombie extends EntityAnimal
      */
     public boolean interact(EntityPlayer par1EntityPlayer)
     {
-        ItemStack itemstack = par1EntityPlayer.getCurrentEquippedItem();
-
-        if (itemstack != null && itemstack.getItem() == Item.appleGold && itemstack.getItemDamage() == 0 && this.isVillager() && this.isPotionActive(Potion.weakness))
-        {
-            if (!par1EntityPlayer.capabilities.isCreativeMode)
-            {
-                --itemstack.stackSize;
-            }
-
-            if (itemstack.stackSize <= 0)
-            {
-                par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack)null);
-            }
-
-            if (!this.worldObj.isRemote)
-            {
-                this.startConversion(this.rand.nextInt(2401) + 3600);
-            }
-
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+    	par1EntityPlayer.mountEntity(this);
+        return true;
     }
 
     /**
@@ -507,7 +480,7 @@ public class EntityReplacedZombie extends EntityAnimal
     protected void startConversion(int par1)
     {
         this.conversionTime = par1;
-        this.getDataWatcher().updateObject(14, Byte.valueOf((byte)1));
+        this.getDataWatcher().updateObject(31, Byte.valueOf((byte)1));
         this.removePotionEffect(Potion.weakness.id);
         this.addPotionEffect(new PotionEffect(Potion.damageBoost.id, par1, Math.min(this.worldObj.difficultySetting - 1, 0)));
         this.worldObj.setEntityState(this, (byte)16);
@@ -539,7 +512,7 @@ public class EntityReplacedZombie extends EntityAnimal
      */
     public boolean isConverting()
     {
-        return this.getDataWatcher().getWatchableObjectByte(14) == 1;
+        return this.getDataWatcher().getWatchableObjectByte(31) == 1;
     }
 
     /**
@@ -601,7 +574,11 @@ public class EntityReplacedZombie extends EntityAnimal
 
 	@Override
 	public EntityAgeable createChild(EntityAgeable entityageable) {
-		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public boolean canBeSteered() {
+		return true;
 	}
 }

@@ -4,6 +4,7 @@ import net.dcatcher.modjam.entity.cow.EntityReplacedCow;
 import net.dcatcher.modjam.entity.hostile.creeper.EntityReplacedCreeper;
 import net.dcatcher.modjam.entity.hostile.enderman.EntityReplacedEnderman;
 import net.dcatcher.modjam.entity.hostile.spider.EntityReplacedSpider;
+import net.dcatcher.modjam.entity.hostile.zombie.EntityReplacedZombie;
 import net.dcatcher.modjam.entity.sheep.EntityReplacedSheep;
 import net.dcatcher.modjam.items.ItemHandler;
 import net.minecraft.entity.Entity;
@@ -12,6 +13,7 @@ import net.minecraft.entity.ai.EntityAIControlledByPlayer;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntitySpider;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
@@ -95,6 +97,15 @@ public class EventHandler {
 			if(entity instanceof EntityCreeper && !entity.isChild()){
 				entity.setDead();
 				Entity e = new EntityReplacedCreeper(world);
+				e.setLocationAndAngles(xCoord, yCoord + 1, zCoord, yaw, pitch);
+				if(!world.isRemote){
+					world.spawnEntityInWorld(e);
+				}
+			}
+			
+			if(entity instanceof EntityZombie && !entity.isChild()){
+				entity.setDead();
+				Entity e = new EntityReplacedZombie(world);
 				e.setLocationAndAngles(xCoord, yCoord + 1, zCoord, yaw, pitch);
 				if(!world.isRemote){
 					world.spawnEntityInWorld(e);
