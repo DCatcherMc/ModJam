@@ -52,7 +52,7 @@ public class EntityReplacedSlime extends EntityCreature
         this.dataWatcher.addObject(16, new Byte((byte)1));
     }
 
-    protected void setSlimeSize(int par1)
+    public void setSlimeSize(int par1)
     {
         this.dataWatcher.updateObject(16, new Byte((byte)par1));
         this.setSize(0.6F * (float)par1, 0.6F * (float)par1);
@@ -107,7 +107,7 @@ public class EntityReplacedSlime extends EntityCreature
     /**
      * Called to update the entity's position/logic.
      */
-    public void onUpdate()
+ /*   public void onUpdate()
     {
         if (!this.worldObj.isRemote && this.worldObj.difficultySetting == 0 && this.getSlimeSize() > 0)
         {
@@ -154,7 +154,10 @@ public class EntityReplacedSlime extends EntityCreature
         }
     }
 
-    protected void updateEntityActionState()
+ */
+
+
+    /*  protected void updateEntityActionState()
     {
         this.despawnEntity();
         EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
@@ -189,10 +192,11 @@ public class EntityReplacedSlime extends EntityCreature
 
             if (this.onGround)
             {
-                this.moveStrafing = this.moveForward = 0.6F;
+                this.moveStrafing = this.moveForward = 0.3F;
             }
         }
-    }
+      
+    }  */
 
     protected void func_70808_l()
     {

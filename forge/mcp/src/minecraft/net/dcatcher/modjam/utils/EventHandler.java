@@ -121,9 +121,11 @@ public class EventHandler {
 			
 			
 			if(entity instanceof EntitySlime){
+				int size = ((EntitySlime) entity).getSlimeSize();
 				entity.setDead();
 				Entity e = new EntityReplacedSlime(world);
 				e.setLocationAndAngles(xCoord, yCoord, zCoord, yaw, pitch);
+				((EntityReplacedSlime) e).setSlimeSize(size);
 				if(!world.isRemote){
 					world.spawnEntityInWorld(e);
 				}
