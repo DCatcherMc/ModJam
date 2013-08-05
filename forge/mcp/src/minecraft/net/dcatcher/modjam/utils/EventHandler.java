@@ -68,6 +68,7 @@ public class EventHandler {
 					e.setFleeceColor(color);
 					world.spawnEntityInWorld(e);
 				}
+				player.inventory.decrStackSize(player.inventory.currentItem, 1);
 			}
 			
 			
@@ -78,6 +79,7 @@ public class EventHandler {
 				if(!world.isRemote){
 					world.spawnEntityInWorld(e);
 				}
+				player.inventory.decrStackSize(player.inventory.currentItem, 1);
 			}
 				
 			if(entity instanceof EntityEnderman && !entity.isChild()){
@@ -87,6 +89,7 @@ public class EventHandler {
 				if(!world.isRemote){
 					world.spawnEntityInWorld(e);
 				}
+				player.inventory.decrStackSize(player.inventory.currentItem, 1);
 			}
 			
 			if(entity instanceof EntitySpider && !entity.isChild()){
@@ -96,6 +99,7 @@ public class EventHandler {
 				if(!world.isRemote){
 					world.spawnEntityInWorld(e);
 				}
+				player.inventory.decrStackSize(player.inventory.currentItem, 1);
 			}
 			
 			if(entity instanceof EntityCreeper && !entity.isChild()){
@@ -105,6 +109,7 @@ public class EventHandler {
 				if(!world.isRemote){
 					world.spawnEntityInWorld(e);
 				}
+				player.inventory.decrStackSize(player.inventory.currentItem, 1);
 			}
 			
 			if(entity instanceof EntityZombie && !entity.isChild()){
@@ -114,6 +119,7 @@ public class EventHandler {
 				if(!world.isRemote){
 					world.spawnEntityInWorld(e);
 				}
+				player.inventory.decrStackSize(player.inventory.currentItem, 1);
 			}
 			
 			if(entity instanceof EntitySkeleton && !entity.isChild()){
@@ -123,11 +129,13 @@ public class EventHandler {
 				if(!world.isRemote){
 					world.spawnEntityInWorld(e);
 				}
+				player.inventory.decrStackSize(player.inventory.currentItem, 1);
 			}
 			
 			
 			if(entity instanceof EntityPig && !entity.isChild()){
 				((EntityPig) entity).setSaddled(true);
+				player.inventory.decrStackSize(player.inventory.currentItem, 1);
 				}
 			
 			
@@ -140,8 +148,8 @@ public class EventHandler {
 				if(!world.isRemote){
 					world.spawnEntityInWorld(e);
 				}
+				player.inventory.decrStackSize(player.inventory.currentItem, 1);
 			}
-			player.inventory.decrStackSize(player.inventory.currentItem, 1);
 		}
 		
 	}
