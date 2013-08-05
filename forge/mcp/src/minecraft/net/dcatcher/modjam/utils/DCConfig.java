@@ -15,6 +15,8 @@ public class DCConfig {
 	public static int idBeefInfused, idPorkInfused, idMuttonRaw, idMuttonCooked, idMuttonInfused, idBreadInfused, idAppleInfused;
 	public static int idWandofGrowth;
 	public static int idWandofRiding;
+	public static boolean saddleRecipe;
+	public static int idInfusionDust;
 	
 	public static void registerConfig(File directory){
 		File configFile = new File(directory + "/DCatcher.cfg");
@@ -30,14 +32,16 @@ public class DCConfig {
 		
 		//Load config:
 		c.load();
+		
+		saddleRecipe = c.get("Addon Recipes", "VanillaSaddleRecipe", true).getBoolean(true);
+		
 		idInfusedBrick = c.getBlock("InfusedBrick", 500).getInt();
 		idInfernalBurner = c.getBlock("InfernalBurner", 501).getInt();
 		
 		idDiamondShard = c.getItem("DiamondShard", 5000).getInt();
 		
 		idDisguiser = c.getItem("MobTamer", 5001).getInt();
-		idWandofGrowth = c.getItem("WandOfGrowth", 5002).getInt();
-		idWandofRiding = c.getItem("WandOfRiding", 5003).getInt();
+		idInfusionDust = c.getItem("InfusionDust", 5002).getInt();
 		
 		//Foods:
 		idBeefInfused = c.getItem("InfusedBeef", 5010).getInt();
@@ -47,6 +51,8 @@ public class DCConfig {
 		idMuttonInfused = c.getItem("InfusedMutton", 5014).getInt();
 		idBreadInfused = c.getItem("InfusedBread", 5015).getInt();
 		idAppleInfused = c.getItem("InfusedApple", 5016).getInt();
+		
+		
 		
 		
 		

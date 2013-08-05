@@ -3,6 +3,7 @@ package net.dcatcher.modjam;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.dcatcher.modjam.blocks.BlockHandler;
 import net.dcatcher.modjam.items.ItemHandler;
+import net.dcatcher.modjam.utils.DCConfig;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,6 +23,19 @@ public class DCRecipes {
 		GameRegistry.addShapelessRecipe(stackDiamondShard9, stackDiamond1);
 		GameRegistry.addShapedRecipe(stackDiamond1, "ddd","ddd", "ddd", 'd', stackDiamondShard9);
 		
+		//Adding a saddle recipe
+		if(DCConfig.saddleRecipe){
+			GameRegistry.addShapedRecipe(new ItemStack(Item.saddle, 1), "lll","l l","i i", 'i', new ItemStack(Item.ingotIron, 1), 'l', new ItemStack(Item.leather, 1));
+		}
+		
+		//Adding Mystic Saddle recipe!
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.disguiser, 1), new ItemStack(Item.saddle, 1), new ItemStack(ItemHandler.infusionDust, 1));
+		
+		//Adding the food recipes:
 		GameRegistry.addSmelting(ItemHandler.itemMuttonRaw.itemID, new ItemStack(ItemHandler.itemMuttonCooked, 1), 2f);
+		
+		
+
+		
 	}
 }

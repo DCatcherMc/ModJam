@@ -1,6 +1,7 @@
 package net.dcatcher.modjam.items;
 
 import net.dcatcher.modjam.utils.DCConfig;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.dcatcher.modjam.items.food.*;
 
@@ -12,6 +13,8 @@ public class ItemHandler {
 	
 	public static Item itemBeefInfused, itemPorkInfused, itemMuttonRaw, itemMuttonCooked, itemMuttonInfused,
 						itemBreadInfused, itemAppleInfused;
+
+	public static Item infusionDust;
 	
 	public static void registerItems(){
 		diamondShard = new ItemDiamondShard(DCConfig.idDiamondShard -256);
@@ -19,6 +22,8 @@ public class ItemHandler {
 		disguiser = new ItemMobTamer(DCConfig.idDisguiser -256);
 		//wandOfGrowth = new ItemWandOfGrowth(DCConfig.idWandofGrowth -256);
 		wandOfRiding = new ItemWandOfRiding(DCConfig.idWandofRiding -256);
+		
+		infusionDust = new ItemInfusionDust(DCConfig.idInfusionDust -256);
 		
 		
 		

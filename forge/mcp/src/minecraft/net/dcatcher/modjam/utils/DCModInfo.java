@@ -20,6 +20,7 @@ public class DCModInfo {
 	
 	public static final String WAND_OF_GROWTH_NAME = "wandOfGrowth";
 	public static final String WAND_OF_RIDING_NAME = "wandOfRiding";
+	public static final String ITEM_INFUSION_DUST = "itemInfusionDust";
 
 
 }
