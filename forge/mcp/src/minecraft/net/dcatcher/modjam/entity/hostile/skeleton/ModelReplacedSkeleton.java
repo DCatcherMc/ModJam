@@ -6,7 +6,6 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.util.MathHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -44,7 +43,7 @@ public class ModelReplacedSkeleton extends ModelBiped
      */
     public void setLivingAnimations(EntityLivingBase par1EntityLivingBase, float par2, float par3, float par4)
     {
-        this.aimedBow = ((EntitySkeleton)par1EntityLivingBase).getSkeletonType() == 1;
+        this.aimedBow = ((EntityReplacedSkeleton)par1EntityLivingBase).getSkeletonType() == 1;
         super.setLivingAnimations(par1EntityLivingBase, par2, par3, par4);
     }
     

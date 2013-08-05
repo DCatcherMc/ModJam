@@ -5,7 +5,6 @@ import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EntityLivingData;
@@ -14,7 +13,6 @@ import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIArrowAttack;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIControlledByPlayer;
 import net.minecraft.entity.ai.EntityAIFleeSun;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -23,7 +21,7 @@ import net.minecraft.entity.ai.EntityAIRestrictSun;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.passive.EntityTameable;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
@@ -37,7 +35,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderHell;
 
-public class EntityReplacedSkeleton extends EntityTameable implements IRangedAttackMob
+public class EntityReplacedSkeleton extends EntityMob implements IRangedAttackMob
 {
     private EntityAIArrowAttack aiArrowAttack = new EntityAIArrowAttack(this, 1.0D, 20, 60, 15.0F);
     private EntityAIAttackOnCollide aiAttackOnCollide = new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.2D, false);
@@ -45,10 +43,10 @@ public class EntityReplacedSkeleton extends EntityTameable implements IRangedAtt
     public EntityReplacedSkeleton(World par1World)
     {
         super(par1World);
-        this.setSize(0.8f, 2f);
         this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(2, new EntityAIControlledByPlayer(this, 0.6F));
-        this.tasks.addTask(5, new EntityAIWander(this, 0.6D));
+        this.tasks.addTask(2, new EntityAIRestrictSun(this));
+        this.tasks.addTask(3, new EntityAIFleeSun(this, 1.0D));
+        this.tasks.addTask(5, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(6, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
@@ -60,10 +58,10 @@ public class EntityReplacedSkeleton extends EntityTameable implements IRangedAtt
         }
     }
 
-    
     protected void func_110147_ax()
     {
         super.func_110147_ax();
+        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.25D);
     }
 
     protected void entityInit()
@@ -71,11 +69,7 @@ public class EntityReplacedSkeleton extends EntityTameable implements IRangedAtt
         super.entityInit();
         this.dataWatcher.addObject(13, new Byte((byte)0));
     }
-    @Override
-    public boolean interact(EntityPlayer par1EntityPlayer) {
-		par1EntityPlayer.mountEntity(this);
-		return true;
-    }
+
     /**
      * Returns true if the newer Entity AI code should be run
      */
@@ -172,6 +166,10 @@ public class EntityReplacedSkeleton extends EntityTameable implements IRangedAtt
                     flag = false;
                 }
 
+                if (flag)
+                {
+                    this.setFire(8);
+                }
             }
         }
 
@@ -431,14 +429,4 @@ public class EntityReplacedSkeleton extends EntityTameable implements IRangedAtt
     {
         return super.getYOffset() - 0.5D;
     }
-    
-    @Override
-    public boolean canBeSteered() {
-    	return true;
-    }
-
-	@Override
-	public EntityAgeable createChild(EntityAgeable entityageable) {
-		return null;
-	}
 }
