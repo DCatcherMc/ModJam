@@ -1,8 +1,12 @@
 package net.dcatcher.modjam.entity.hostile.slime;
 
+import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIControlledByPlayer;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIPanic;
+import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.passive.IAnimals;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -14,7 +18,7 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 
-public class EntityReplacedSlime extends EntityLiving implements IAnimals
+public class EntityReplacedSlime extends EntityCreature
 {
     public float field_70813_a;
     public float field_70811_b;
@@ -27,6 +31,9 @@ public class EntityReplacedSlime extends EntityLiving implements IAnimals
     {
         super(par1World);
         this.tasks.addTask(0, new EntityAIControlledByPlayer(this, 0.9F));
+        this.tasks.addTask(1, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(8, new EntityAILookIdle(this));
+        this.tasks.addTask(9, new EntityAIPanic(this, 1.25D));
         int i = 1 << this.rand.nextInt(3);
         this.yOffset = 0.0F;
         this.slimeJumpDelay = this.rand.nextInt(20) + 10;
@@ -182,7 +189,7 @@ public class EntityReplacedSlime extends EntityLiving implements IAnimals
 
             if (this.onGround)
             {
-                this.moveStrafing = this.moveForward = 0.0F;
+                this.moveStrafing = this.moveForward = 0.6F;
             }
         }
     }
@@ -332,7 +339,7 @@ public class EntityReplacedSlime extends EntityLiving implements IAnimals
      */
     public int getVerticalFaceSpeed()
     {
-        return 0;
+        return (int)0.6;
     }
 
     /**
