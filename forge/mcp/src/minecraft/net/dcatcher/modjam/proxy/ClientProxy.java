@@ -6,6 +6,8 @@ import net.dcatcher.modjam.entity.hostile.creeper.EntityReplacedCreeper;
 import net.dcatcher.modjam.entity.hostile.creeper.RenderReplacedCreeper;
 import net.dcatcher.modjam.entity.hostile.enderman.EntityReplacedEnderman;
 import net.dcatcher.modjam.entity.hostile.enderman.RenderReplacedEnderman;
+import net.dcatcher.modjam.entity.hostile.skeleton.EntityReplacedSkeleton;
+import net.dcatcher.modjam.entity.hostile.skeleton.RenderReplacedSkeleton;
 import net.dcatcher.modjam.entity.hostile.slime.EntityReplacedSlime;
 import net.dcatcher.modjam.entity.hostile.slime.RenderReplacedSlime;
 import net.dcatcher.modjam.entity.hostile.spider.EntityReplacedSpider;
@@ -36,6 +38,7 @@ public class ClientProxy extends CommonProxy{
 		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedCreeper.class, new RenderReplacedCreeper());
 		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedZombie.class, new RenderReplacedZombie());
 		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedSlime.class, new RenderReplacedSlime(new ModelSlime(16), new ModelSlime(0), 0.25f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityReplacedSkeleton.class, new RenderReplacedSkeleton());
 		
 	}
 	
