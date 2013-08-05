@@ -45,9 +45,10 @@ public class EntityReplacedSkeleton extends EntityTameable implements IRangedAtt
     public EntityReplacedSkeleton(World par1World)
     {
         super(par1World);
+        this.setSize(0.8f, 2f);
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIControlledByPlayer(this, 0.6F));
-        this.tasks.addTask(5, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(5, new EntityAIWander(this, 0.6D));
         this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(6, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
@@ -59,6 +60,7 @@ public class EntityReplacedSkeleton extends EntityTameable implements IRangedAtt
         }
     }
 
+    
     protected void func_110147_ax()
     {
         super.func_110147_ax();

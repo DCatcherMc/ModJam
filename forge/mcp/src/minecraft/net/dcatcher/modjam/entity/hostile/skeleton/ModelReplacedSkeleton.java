@@ -1,15 +1,16 @@
 package net.dcatcher.modjam.entity.hostile.skeleton;
 
-import net.dcatcher.modjam.entity.hostile.zombie.ModelReplacedZombie;
+import net.dcatcher.modjam.entity.hostile.zombie.EntityReplacedZombie;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.util.MathHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class ModelReplacedSkeleton extends ModelReplacedZombie
+public class ModelReplacedSkeleton extends ModelBiped
 {
     public ModelReplacedSkeleton()
     {
@@ -41,7 +42,7 @@ public class ModelReplacedSkeleton extends ModelReplacedZombie
      */
     public void setLivingAnimations(EntityLivingBase par1EntityLivingBase, float par2, float par3, float par4)
     {
-        this.aimedBow = ((EntitySkeleton)par1EntityLivingBase).getSkeletonType() == 1;
+        this.aimedBow = ((EntityReplacedSkeleton)par1EntityLivingBase).getSkeletonType() == 1;
         super.setLivingAnimations(par1EntityLivingBase, par2, par3, par4);
     }
 
@@ -53,5 +54,27 @@ public class ModelReplacedSkeleton extends ModelReplacedZombie
     public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity par7Entity)
     {
         super.setRotationAngles(par1, par2, par3, par4, par5, par6, par7Entity);
+        super.setRotationAngles(par1, par2, par3, par4, par5, par6, par7Entity);
+        float f6 = MathHelper.sin(this.onGround * (float)Math.PI);
+        float f7 = MathHelper.sin((1.0F - (1.0F - this.onGround) * (1.0F - this.onGround)) * (float)Math.PI);
+    //    this.bipedRightArm.rotateAngleZ = 0.0F;
+        //this.bipedLeftArm.rotateAngleZ = 0.0F;
+        this.bipedRightArm.rotateAngleY = -(0.1F - f6 * 0.6F);
+        this.bipedLeftArm.rotateAngleY = 0.1F - f6 * 0.6F;
+        
+        if(((EntityReplacedZombie) par7Entity).isBeingRidden()){
+        this.bipedRightArm.rotateAngleX = -((float)Math.PI);
+        this.bipedLeftArm.rotateAngleX = -((float)Math.PI); //THIS ONE :D
+        }else{
+            this.bipedRightArm.rotateAngleX = -((float)Math.PI /2);
+            this.bipedLeftArm.rotateAngleX = -((float)Math.PI /2);
+        }
+        
+  //      this.bipedRightArm.rotateAngleX -= f6 * 1.2F - f7 * 0.4F;
+       // this.bipedLeftArm.rotateAngleX -= f6 * 1.2F - f7 * 0.4F;
+      //  this.bipedRightArm.rotateAngleZ += MathHelper.cos(par3 * 0.09F) * 0.05F + 0.05F;
+        //this.bipedLeftArm.rotateAngleZ -= MathHelper.cos(par3 * 0.09F) * 0.05F + 0.05F;
+       // this.bipedRightArm.rotateAngleX += MathHelper.sin(par3 * 0.067F) * 0.05F;
+       // this.bipedLeftArm.rotateAngleX -= MathHelper.sin(par3 * 0.067F) * 0.05F;
     }
 }
