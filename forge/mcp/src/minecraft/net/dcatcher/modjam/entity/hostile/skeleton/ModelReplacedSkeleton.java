@@ -77,4 +77,5 @@ public class ModelReplacedSkeleton extends ModelBiped
        // this.bipedRightArm.rotateAngleX += MathHelper.sin(par3 * 0.067F) * 0.05F;
        // this.bipedLeftArm.rotateAngleX -= MathHelper.sin(par3 * 0.067F) * 0.05F;
     }
+    
 }
