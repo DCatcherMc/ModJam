@@ -44,8 +44,8 @@ public class ModelReplacedZombie extends ModelBiped
         this.bipedRightArm.rotateAngleX = -((float)Math.PI);
         this.bipedLeftArm.rotateAngleX = -((float)Math.PI); //THIS ONE :D
         }else{
-            this.bipedRightArm.rotateAngleX = -((float)Math.PI /2);
-            this.bipedLeftArm.rotateAngleX = -((float)Math.PI /2);
+        	this.bipedRightArm.rotateAngleX = MathHelper.cos(par1 * 0.6662F + (float)Math.PI) * 2.0F * par2 * 0.5F;
+            this.bipedLeftArm.rotateAngleX = MathHelper.cos(par1 * 0.6662F) * 2.0F * par2 * 0.5F;
         }
         
   //      this.bipedRightArm.rotateAngleX -= f6 * 1.2F - f7 * 0.4F;
