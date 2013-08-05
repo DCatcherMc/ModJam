@@ -1,0 +1,17 @@
+[
+{
+  "modid": "DCModJam",
+  "name": "MobTamer",
+  "description": "Become the mob tamer you have always wanted to be! Tame creepers follow you! FOR GOOD REASONS!",
+  "version": "",
+  "credits": "Created by SpaceToad",
+  "mcversion": "",
+  "url": "http://github.com/DCatcherMc/ModJam",
+  "updateUrl": "",
+  "authors": [ "DCatcher" ],
+  "parent":"",
+  "screenshots": [],
+  "dependencies": [
+         "Minecraft Forge"
+]
+}
