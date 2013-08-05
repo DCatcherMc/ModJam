@@ -6,6 +6,11 @@ ModJam 2013 - Starting Friday 2nd August @ Midnight
 This is DCatcher's repo for ModJam
 
 
+HOWTO Download:
+
+Goto the Builds folder, and click the latest version. Then click VIEW RAW and it will download for you :)
+
+
 Instructions on how to build:
 ===============================
 Copy all files from forge/mcp/src/minecraft into a fully setup Minecraft Forge modding environment, 
