@@ -51,6 +51,7 @@ List of tameable mobs:
 - Spider
 - Zombie
 - Skeleton
+- Endermen
 
 
 Use the Mystic Saddle upon the mob, and then right click them (NOT HOLDING ANOTHER SADDLE) to ride them :)
