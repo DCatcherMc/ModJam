@@ -6,14 +6,11 @@ public class LanguageHandler {
 
 	public static void registerLangs(){
 		LanguageRegistry.instance().addStringLocalization("itemGroup.DCatcher",
-															"DCatcher's Tab!");
+															"ModJam [DC]");
 	
 		//Blocks:
 		LanguageRegistry.instance().addStringLocalization("tile.blockInfusedBrick.name",
 															"Infused Bricks");
-		LanguageRegistry.instance().addStringLocalization("tile.blockInfernalFurnace.name",
-															"Infernal Furnace Core");
-		
 		
 		//Items:
 		LanguageRegistry.instance().addStringLocalization("item.shardDiamond.name", "Diamond Shard");
@@ -21,6 +18,8 @@ public class LanguageHandler {
 		LanguageRegistry.instance().addStringLocalization("item.mobTamer.name", "Mystic Saddle");
 		LanguageRegistry.instance().addStringLocalization("item.wandOfGrowth.name", "Wand Of Growth");
 		LanguageRegistry.instance().addStringLocalization("item.wandOfRiding.name", "Wand Of Riding");
+		LanguageRegistry.instance().addStringLocalization("item.itemInfusionDust.name", "Infusion Dust");
+		
 		
 		//Foods:
 		LanguageRegistry.instance().addStringLocalization("item.foodBeefInfused.name", "Infused Beed");
@@ -32,9 +31,8 @@ public class LanguageHandler {
 		LanguageRegistry.instance().addStringLocalization("item.foodAppleInfused.name", "Infused Apple");
 
 
+		//MobNames:
 		
-		//Containers:
-		LanguageRegistry.instance().addStringLocalization("container.burner", "Infernal Burner");
 
 	}
 	

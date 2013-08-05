@@ -36,12 +36,11 @@ public class DCConfig {
 		saddleRecipe = c.get("Addon Recipes", "VanillaSaddleRecipe", true).getBoolean(true);
 		
 		idInfusedBrick = c.getBlock("InfusedBrick", 500).getInt();
-		idInfernalBurner = c.getBlock("InfernalBurner", 501).getInt();
-		
 		idDiamondShard = c.getItem("DiamondShard", 5000).getInt();
 		
 		idDisguiser = c.getItem("MobTamer", 5001).getInt();
-		idInfusionDust = c.getItem("InfusionDust", 5002).getInt();
+		idWandofRiding = c.getItem("WandOfRiding", 5002).getInt();
+		idInfusionDust = c.getItem("InfusionDust", 5003).getInt();
 		
 		//Foods:
 		idBeefInfused = c.getItem("InfusedBeef", 5010).getInt();
